@@ -142,3 +142,252 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offse
 .infographic-gallery figcaption strong{font-size:.78rem;font-weight:600}
 .infographic-gallery figcaption a{color:#236a55;font-weight:800;font-size:.75rem;white-space:nowrap}
 @media(max-width:600px){.media-tools{margin:-2px 14px 18px;align-items:flex-start;flex-direction:column;gap:6px}}
+
+
+/* ===== CORRECCIÓN 2026 · MAPA + ARCHIVO MULTIMEDIA ===== */
+
+/* Mapa territorial real */
+.territory-grid{align-items:stretch}
+.map-card{
+  position:relative;
+  min-height:560px;
+  margin:0;
+  overflow:hidden;
+  border:1px solid #8fe1c128;
+  border-radius:28px;
+  background:linear-gradient(145deg,#0b2a21,#061510);
+  box-shadow:0 28px 80px #0005;
+  display:flex;
+  flex-direction:column;
+}
+.map-card-head{
+  position:relative;
+  z-index:2;
+  padding:20px 22px 14px;
+  border-bottom:1px solid #ffffff12;
+  background:linear-gradient(180deg,#0c2b22,#0a211b);
+}
+.map-card-head span{
+  display:block;
+  color:var(--mint);
+  font-size:.62rem;
+  font-weight:800;
+  letter-spacing:.17em;
+  margin-bottom:6px;
+}
+.map-card-head b{
+  display:block;
+  font:800 1.18rem Manrope;
+  color:#eef7f3;
+}
+.map-image-wrap{
+  position:relative;
+  flex:1;
+  min-height:400px;
+  display:grid;
+  place-items:center;
+  padding:20px 28px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 45%,#8fe1c112,transparent 48%),
+    linear-gradient(145deg,#09251d,#04120f);
+}
+.map-image-wrap:after{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid #8fe1c110;
+  border-radius:20px;
+  pointer-events:none;
+}
+.map-image-wrap img{
+  position:relative;
+  z-index:1;
+  width:min(100%,430px);
+  height:390px;
+  object-fit:contain;
+  display:block;
+  filter:brightness(.82) saturate(.82) contrast(1.08);
+  mix-blend-mode:screen;
+  opacity:.95;
+}
+.map-ocean{
+  position:absolute;
+  z-index:2;
+  left:20px;
+  bottom:18px;
+  padding:7px 10px;
+  border:1px solid #8fe1c126;
+  border-radius:999px;
+  background:#03100dcc;
+  color:#9fe4c8;
+  font-size:.58rem;
+  letter-spacing:.12em;
+  font-weight:800;
+}
+.map-card figcaption{
+  position:relative;
+  z-index:2;
+  padding:13px 20px;
+  border-top:1px solid #ffffff12;
+  color:#78938a;
+  background:#04120f;
+  font-size:.66rem;
+  line-height:1.55;
+}
+.map-card figcaption:before{content:"CARTOGRAFÍA · ";color:#9fe4c8;font-weight:800;letter-spacing:.1em}
+
+/* Archivo: una zona más editorial y menos plana */
+.media-overview{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin:0 0 24px;
+}
+.media-overview article{
+  position:relative;
+  min-height:132px;
+  padding:20px;
+  border:1px solid #173b3120;
+  border-radius:22px;
+  background:linear-gradient(145deg,#ffffff,#edf6f2);
+  box-shadow:0 16px 45px #173b3114;
+  overflow:hidden;
+}
+.media-overview article:after{
+  content:"";
+  position:absolute;
+  width:100px;
+  height:100px;
+  right:-35px;
+  bottom:-45px;
+  border-radius:50%;
+  background:#8fe1c145;
+}
+.media-overview span{
+  display:block;
+  color:#6b8178;
+  font-size:.62rem;
+  font-weight:800;
+  letter-spacing:.13em;
+}
+.media-overview b{
+  display:block;
+  margin-top:18px;
+  color:#17392f;
+  font:800 1.15rem Manrope;
+}
+.media-overview small{
+  display:block;
+  margin-top:5px;
+  max-width:180px;
+  color:#6a7d75;
+  line-height:1.45;
+}
+
+.media-feature{
+  margin-bottom:22px;
+}
+.media-feature.video-feature{
+  background:#071a15;
+}
+.media-feature:first-of-type{
+  border-color:#173b3130;
+}
+.media-feature:first-of-type .media-heading{
+  background:linear-gradient(100deg,#f8fcfa,#e4f1ec);
+}
+.media-feature video{
+  min-height:260px;
+  object-fit:contain;
+  background:#020806;
+}
+.media-feature video::-webkit-media-controls-panel{background-image:linear-gradient(transparent,#0008)}
+
+.media-feature:nth-of-type(3){
+  background:linear-gradient(145deg,#0b2921,#061713);
+}
+.media-feature:nth-of-type(3) .media-heading{
+  color:#f0f8f4;
+  background:linear-gradient(100deg,#0b2921,#123a2f);
+  border-color:#ffffff12;
+}
+.media-feature:nth-of-type(3) .media-heading span{color:#9be4c7}
+.media-feature:nth-of-type(3) .media-heading small{color:#a8bbb3}
+.media-feature:nth-of-type(3) audio{height:54px}
+
+.infographic-gallery{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  padding:24px;
+  gap:22px;
+}
+.infographic-gallery figure{
+  position:relative;
+  margin:0;
+  overflow:hidden;
+}
+.media-number{
+  position:absolute;
+  z-index:3;
+  top:14px;
+  left:14px;
+  width:38px;
+  height:38px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#062019e8;
+  border:1px solid #8fe1c155;
+  color:#9fe4c8;
+  font:800 .7rem Manrope;
+  box-shadow:0 8px 25px #0004;
+}
+.infographic-gallery img{
+  min-height:320px;
+  max-height:680px;
+  object-fit:contain;
+  transition:transform .35s ease;
+}
+.infographic-gallery figure:hover img{transform:scale(1.015)}
+.infographic-gallery figcaption{
+  min-height:56px;
+}
+
+.presentation{
+  margin-top:22px;
+  border-color:#8fe1c126;
+  box-shadow:0 28px 80px #0004;
+}
+.presentation .pdf-viewer{
+  min-height:620px;
+}
+.presentation-actions{
+  border-top:1px solid #ffffff0d;
+  padding-top:16px;
+}
+.media-index{
+  background:#ffffff8c;
+  border-radius:18px;
+  padding:17px 18px;
+}
+
+/* En pantallas pequeñas: conservar jerarquía sin hacer todo gigantesco */
+@media(max-width:950px){
+  .media-overview{grid-template-columns:repeat(2,1fr)}
+  .map-card{min-height:500px}
+  .map-image-wrap{min-height:340px}
+}
+@media(max-width:600px){
+  .media-overview{grid-template-columns:1fr 1fr;gap:9px}
+  .media-overview article{min-height:116px;padding:15px}
+  .media-overview b{margin-top:13px;font-size:1rem}
+  .media-overview small{font-size:.72rem}
+  .map-card{min-height:470px}
+  .map-image-wrap{min-height:330px;padding:12px}
+  .map-image-wrap img{height:310px;width:100%}
+  .map-card figcaption{font-size:.6rem}
+  .media-feature video{min-height:210px;max-height:none}
+  .infographic-gallery{grid-template-columns:1fr;padding:12px;gap:14px}
+  .infographic-gallery img{min-height:0;max-height:none}
+  .presentation .pdf-viewer{min-height:430px}
+}
