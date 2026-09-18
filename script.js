@@ -118,7 +118,6 @@ function renderClassify(){
         $("#classifyScore").textContent=classifyDone+" / "+classifyItems.length;
         $("#classifyFeedback").textContent=classifyDone===classifyItems.length?"✓ ¡Todas las actividades están clasificadas!":"✓ Correcto. Continúa con otra actividad.";
         if(classifyDone===classifyItems.length){
-          $(".classifyFinish").classList.remove("hidden");
           $("#classifyFinish").classList.remove("hidden");
           $$(".sector-buttons button").forEach(x=>x.disabled=true);
         }
