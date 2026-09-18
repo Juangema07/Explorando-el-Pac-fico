@@ -397,7 +397,9 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offse
 
 
 /* Pantalla completa: se reutiliza EXACTAMENTE el mismo toolbar de fuera */
+
 .pdf-stage{position:relative}
+
 .pdf-stage:fullscreen,
 .pdf-stage:-webkit-full-screen{
   width:100vw;
@@ -406,22 +408,28 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offse
   padding:0;
   background:#020806;
 }
+
+/* En pantalla completa, los controles siguen siendo los mismos,
+   pero pasan a la parte superior para no tapar la diapositiva. */
 .pdf-stage:fullscreen .pdf-toolbar,
 .pdf-stage:-webkit-full-screen .pdf-toolbar{
   position:absolute;
   z-index:20;
   left:18px;
   right:18px;
-  bottom:18px;
+  top:18px;
+  bottom:auto;
   margin:0;
 }
+
+/* La presentación queda más pequeña únicamente en pantalla completa. */
 .pdf-stage:fullscreen .pdf-viewer,
 .pdf-stage:-webkit-full-screen .pdf-viewer{
   width:100vw;
   height:100vh;
   min-height:0;
   margin:0;
-  padding:20px;
+  padding:90px 24px 24px;
   border:0;
   border-radius:0;
   overflow:auto;
@@ -429,24 +437,32 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offse
   display:grid;
   place-items:center;
 }
+
 .pdf-stage:fullscreen #pdfCanvas,
 .pdf-stage:-webkit-full-screen #pdfCanvas{
-  max-width:92vw;
-  max-height:82vh;
+  max-width:78vw;
+  max-height:68vh;
   width:auto;
   height:auto;
   object-fit:contain;
 }
+
 @media(max-width:700px){
   .pdf-stage:fullscreen .pdf-toolbar,
   .pdf-stage:-webkit-full-screen .pdf-toolbar{
     left:8px;
     right:8px;
-    bottom:8px;
+    top:8px;
   }
+
+  .pdf-stage:fullscreen .pdf-viewer,
+  .pdf-stage:-webkit-full-screen .pdf-viewer{
+    padding:78px 12px 16px;
+  }
+
   .pdf-stage:fullscreen #pdfCanvas,
   .pdf-stage:-webkit-full-screen #pdfCanvas{
-    max-width:96vw;
-    max-height:76vh;
+    max-width:88vw;
+    max-height:64vh;
   }
 }
