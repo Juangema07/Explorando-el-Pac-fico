@@ -406,3 +406,13 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offse
 #videoStart{position:relative;z-index:1;border:0;border-radius:999px;padding:13px 20px;background:#dff9ed;color:#0a2017;font:700 .95rem DM Sans,sans-serif;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.2)}
 #videoStart:hover{transform:translateY(-1px)}
 @media(max-width:700px){.video-shell,.video-shell video{min-height:250px}.video-cover{padding:28px}.video-cover-title{font-size:2.4rem}}
+
+
+/* Navegación dentro de pantalla completa del PDF */
+.pdf-fs-nav{display:none;position:absolute;z-index:5;top:50%;transform:translateY(-50%);width:52px;height:76px;border:1px solid rgba(255,255,255,.22);border-radius:16px;background:rgba(0,0,0,.52);backdrop-filter:blur(10px);color:#fff;font-size:3rem;line-height:1;cursor:pointer;align-items:center;justify-content:center}
+.pdf-fs-prev{left:18px}.pdf-fs-next{right:18px}.pdf-fs-hint{display:none;position:absolute;z-index:5;bottom:16px;left:50%;transform:translateX(-50%);padding:8px 13px;border-radius:999px;background:rgba(0,0,0,.55);color:rgba(255,255,255,.78);font-size:.72rem;pointer-events:none}
+.pdf-viewer:fullscreen,.pdf-viewer:-webkit-full-screen{display:flex;align-items:center;justify-content:center;width:100vw;height:100vh;max-width:none;margin:0;border-radius:0;background:#050806}
+.pdf-viewer:fullscreen #pdfCanvas,.pdf-viewer:-webkit-full-screen #pdfCanvas{max-width:92vw;max-height:92vh;width:auto;height:auto;object-fit:contain}
+.pdf-viewer:fullscreen .pdf-fs-nav,.pdf-viewer:-webkit-full-screen .pdf-fs-nav{display:flex}
+.pdf-viewer:fullscreen .pdf-fs-hint,.pdf-viewer:-webkit-full-screen .pdf-fs-hint{display:block}
+@media(max-width:700px){.pdf-fs-nav{width:42px;height:60px;font-size:2.5rem}.pdf-fs-prev{left:8px}.pdf-fs-next{right:8px}.pdf-viewer:fullscreen #pdfCanvas,.pdf-viewer:-webkit-full-screen #pdfCanvas{max-width:96vw;max-height:90vh}}
