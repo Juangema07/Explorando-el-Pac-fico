@@ -466,3 +466,72 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offse
     max-height:64vh;
   }
 }
+
+/* ===== JUEGOS 2026 · CLARIDAD Y FINAL ===== */
+.game-intro small{
+  display:block;
+  margin-top:8px;
+  max-width:720px;
+  line-height:1.55;
+  opacity:.72;
+}
+.gamehead{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  align-items:center;
+}
+.game-finish{
+  margin-top:22px;
+  padding:22px;
+  border:1px solid rgba(155,255,215,.28);
+  border-radius:18px;
+  background:rgba(10,42,34,.72);
+  display:grid;
+  gap:8px;
+}
+.game-finish strong{font-size:1.35rem}
+.game-finish span{opacity:.8;line-height:1.5}
+.game-finish .btn{justify-self:start;margin-top:8px}
+.game-finish.hidden{display:none}
+.route button.correct,
+#qOptions button.correct,
+#decisionBox button.good{
+  outline:2px solid rgba(125,255,195,.75);
+}
+.route button.wrong,
+#qOptions button.wrong,
+#decisionBox button.bad{
+  outline:2px solid rgba(255,130,130,.7);
+}
+#routeResult,#classifyFeedback,#qFeedback{
+  min-height:24px;
+  line-height:1.5;
+}
+#routeChoices{
+  display:grid;
+  gap:10px;
+  margin:18px 0;
+}
+#routeChoices button{
+  text-align:left;
+}
+#routeChoices button:disabled{
+  opacity:.72;
+}
+#decisionBox>div{
+  display:grid;
+  gap:10px;
+  margin-top:16px;
+}
+#decisionBox button{
+  text-align:left;
+  line-height:1.4;
+}
+.classify-card.done{
+  border-color:rgba(125,255,195,.55);
+  opacity:.9;
+}
+.classify-card.done button{
+  opacity:.65;
+}
