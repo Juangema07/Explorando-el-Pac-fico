@@ -1,26 +1,38 @@
 # Explorando el Pacífico Colombiano
 
-Proyecto educativo e interactivo de grado 11° para **Colombia en la web: Explorando nuestras regiones naturales**.
+Proyecto educativo e interactivo de grado 11° para **Colombia en la Web: Explorando nuestras regiones naturales**.
 
-## Estructura
-- Geografía física
-- Geografía humana y diversidad cultural
-- Geografía económica
-- Problemáticas y desafíos
-- 4 actividades interactivas propias
-- Para seguir explorando
-- Fuentes consultadas
-- Espacios preparados para video, podcast, 2 infografías y PowerPoint
+## Experiencia web
+- Territorio y departamentos del Pacífico
+- Geografía física: relieve, clima, hidrografía y ecosistemas
+- Ciclo del agua y conexiones territoriales
+- Biodiversidad y conservación
+- Geografía humana, población y comunidad
+- Patrimonio cultural: marimba, cantos y bailes tradicionales
+- Geografía económica y cadena productiva
+- Áreas protegidas y espacios costeros
+- Desafíos ambientales y sociales
+- Laboratorio con quiz, memoria, ruta del río, clasificación y decisiones
+- Cuaderno de campo
+- Archivo multimedia integrado
+- Fuentes institucionales y bibliografía
 
-El contenido se basa en la guía del proyecto y en la información ya desarrollada para el proyecto anterior del Pacífico. Las referencias institucionales se conservan en la web.
+## Materiales integrados
+Los archivos del grupo se encuentran en la raíz del repositorio y están conectados directamente con la página:
 
-## Materiales pendientes
-Agrega los archivos del grupo en:
-- `assets/video/`
-- `assets/audio/`
-- `assets/infografias/`
-- `assets/presentacion/`
-- `assets/images/`
+- `VID-20260916-WA0008.mp4` — video del grupo
+- `AUD-20260916-WA0007.mp3` — podcast
+- `IMG-20260916-WA0004.jpg` — infografía
+- `IMG-20260916-WA0005.jpg` — infografía
+- `region_pacifica_menor_25MB.pdf` — presentación
+
+La presentación PDF cuenta con un **visualizador de diapositivas integrado**, con navegación anterior/siguiente, zoom y pantalla completa, además de un botón independiente para descargar el PDF.
+
+## Fuentes utilizadas
+El contenido ampliado toma como referencia fuentes institucionales como DANE, IGAC, Parques Nacionales Naturales, MinAmbiente, MinEducación y Ministerio de las Culturas. La web incluye accesos directos a estas fuentes para continuar la investigación.
+
+## Publicación
+El repositorio incluye un workflow de GitHub Pages en `.github/workflows/pages.yml`.
 
 ## Nota visual
-La primera versión utiliza fotografías remotas de referencia para la ambientación. Antes de la entrega final se deben reemplazar o acreditar correctamente las imágenes según las condiciones de uso.
+Las fotografías remotas de ambientación deben mantenerse con sus créditos o sustituirse por imágenes con permisos de uso adecuados antes de una entrega pública definitiva.
