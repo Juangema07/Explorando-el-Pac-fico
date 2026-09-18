@@ -50,9 +50,8 @@ const pdfUrl="region_pacifica_menor_25MB.pdf";
 
 function updatePdfCounters(){
   const label=pdfDoc ? pdfPageNum+" / "+pdfDoc.numPages : "1 / —";
-  const main=$("#pdfPage"), fs=$("#pdfFsPage");
+  const main=$("#pdfPage");
   if(main) main.textContent=label;
-  if(fs) fs.textContent=label;
 }
 async function loadPdf(){
   if(!window.pdfjsLib){$("#pdfLoading").textContent="No se pudo cargar el visualizador.";return}
@@ -92,21 +91,28 @@ $("#pdfZoomIn").onclick=()=>zoomPdf(.15);
 $("#pdfZoomOut").onclick=()=>zoomPdf(-.15);
 
 function enterPdfFullscreen(){
-  const box=$("#pdfViewer");
-  if(!box)return;
-  if(box.requestFullscreen)box.requestFullscreen();
-  else if(box.webkitRequestFullscreen)box.webkitRequestFullscreen();
+  const stage=$("#pdfStage");
+  if(!stage)return;
+  try{
+    if(stage.requestFullscreen){
+      const result=stage.requestFullscreen();
+      if(result&&result.catch)result.catch(()=>{});
+    }else if(stage.webkitRequestFullscreen){
+      stage.webkitRequestFullscreen();
+    }
+  }catch(e){}
 }
 function exitPdfFullscreen(){
-  if(document.exitFullscreen)document.exitFullscreen();
-  else if(document.webkitExitFullscreen)document.webkitExitFullscreen();
+  try{
+    if(document.fullscreenElement){
+      const result=document.exitFullscreen();
+      if(result&&result.catch)result.catch(()=>{});
+    }else if(document.webkitFullscreenElement&&document.webkitExitFullscreen){
+      document.webkitExitFullscreen();
+    }
+  }catch(e){}
 }
 $("#pdfFullscreen").onclick=enterPdfFullscreen;
-$("#pdfFsPrev").onclick=goPdfPrev;
-$("#pdfFsNext").onclick=goPdfNext;
-$("#pdfFsZoomIn").onclick=()=>zoomPdf(.15);
-$("#pdfFsZoomOut").onclick=()=>zoomPdf(-.15);
-$("#pdfFsFullscreen").onclick=exitPdfFullscreen;
 
 const pdfViewer=$("#pdfViewer");
 if(pdfViewer){
@@ -120,12 +126,12 @@ if(pdfViewer){
   },{passive:true});
 }
 addEventListener("keydown",e=>{
-  if(!pdfViewer)return;
-  const fs=document.fullscreenElement===pdfViewer||document.webkitFullscreenElement===pdfViewer;
+  const stage=$("#pdfStage");
+  const fs=document.fullscreenElement===stage||document.webkitFullscreenElement===stage;
   if(!fs)return;
-  if(e.key==="ArrowLeft")goPdfPrev();
-  if(e.key==="ArrowRight")goPdfNext();
-  if(e.key==="+")zoomPdf(.15);
-  if(e.key==="-")zoomPdf(-.15);
+  if(e.key==="ArrowLeft"){e.preventDefault();goPdfPrev()}
+  if(e.key==="ArrowRight"){e.preventDefault();goPdfNext()}
+  if(e.key==="+"){e.preventDefault();zoomPdf(.15)}
+  if(e.key==="-"){e.preventDefault();zoomPdf(-.15)}
 });
 loadPdf();
