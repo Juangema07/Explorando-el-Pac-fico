@@ -21,3 +21,20 @@ Cuando se agreguen video, audio, infografías y presentación, registrar aquí s
 - “Mapa de Colombia (región del Pacífico).svg”, autor Milenioscuro, Wikimedia Commons.
 - Licencia: CC BY-SA 4.0.
 - Fuente: https://commons.wikimedia.org/wiki/File:Mapa_de_Colombia_(regi%C3%B3n_del_Pac%C3%ADfico).svg
+
+
+## Galería visual · Wikimedia Commons
+Las fotografías añadidas a la galería se cargan desde Wikimedia Commons mediante sus páginas de archivo. Cada tarjeta muestra autoría y se recomienda consultar la página de origen para la licencia concreta.
+
+- “Selva húmeda tropical de Guapi.jpg” — Juandareina.
+- “Manglar Parque Nacional Ensenada de Utria.jpg” — Jorgegutierrezpareja.
+- “Manglar Buenaventura.jpg” — JulianCandelo.
+- “El Pacífico Colombiano.jpg” — Sofiajaraba02.
+- “Pacifico Colombiano.jpg” — Carlos Valencia Maya.
+- “Ballena jorobada o ballena yubarta (Megaptera novaeangliae).jpg” — MemoOssa.
+- “Buenaventura, Colombia.jpg” — Roboting.
+- “GON 2993.jpg” — archivo de Wikimedia Commons sobre música del Pacífico.
+- “Remando (169385515).jpeg” — Jusezam.
+- “Inés Granja.jpg” — Visuales Mara.
+
+Fuente general: https://commons.wikimedia.org/
