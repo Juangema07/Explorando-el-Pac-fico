@@ -47,41 +47,85 @@ $$(".game-tabs button").forEach(b=>b.onclick=()=>{$$(".game-tabs button").forEac
 
 let pdfDoc=null,pdfPageNum=1,pdfScale=1.1;
 const pdfUrl="region_pacifica_menor_25MB.pdf";
-async function loadPdf(){if(!window.pdfjsLib){$("#pdfLoading").textContent="No se pudo cargar el visualizador.";return}pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";try{pdfDoc=await pdfjsLib.getDocument(pdfUrl).promise;$("#pdfLoading").style.display="none";$("#pdfPage").textContent="1 / "+pdfDoc.numPages;renderPdfPage()}catch(e){$("#pdfLoading").textContent="No se pudo abrir la presentación. Usa el botón para abrir o descargar el PDF."}}
-async function renderPdfPage(){if(!pdfDoc)return;const page=await pdfDoc.getPage(pdfPageNum);const viewport=page.getViewport({scale:pdfScale});const canvas=$("#pdfCanvas"),ctx=canvas.getContext("2d");canvas.width=viewport.width;canvas.height=viewport.height;await page.render({canvasContext:ctx,viewport}).promise;$("#pdfPage").textContent=pdfPageNum+" / "+pdfDoc.numPages}
-$("#pdfPrev").onclick=()=>{if(pdfDoc&&pdfPageNum>1){pdfPageNum--;renderPdfPage()}};
-$("#pdfNext").onclick=()=>{if(pdfDoc&&pdfPageNum<pdfDoc.numPages){pdfPageNum++;renderPdfPage()}};
-$("#pdfZoomIn").onclick=()=>{pdfScale=Math.min(2.4,pdfScale+.15);renderPdfPage()};
-$("#pdfZoomOut").onclick=()=>{pdfScale=Math.max(.55,pdfScale-.15);renderPdfPage()};
-$("#pdfFullscreen").onclick=()=>{const box=$("#pdfViewer");if(box.requestFullscreen)box.requestFullscreen();else if(box.webkitRequestFullscreen)box.webkitRequestFullscreen()};
+
+function updatePdfCounters(){
+  const label=pdfDoc ? pdfPageNum+" / "+pdfDoc.numPages : "1 / —";
+  const main=$("#pdfPage"), fs=$("#pdfFsPage");
+  if(main) main.textContent=label;
+  if(fs) fs.textContent=label;
+}
+async function loadPdf(){
+  if(!window.pdfjsLib){$("#pdfLoading").textContent="No se pudo cargar el visualizador.";return}
+  pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+  try{
+    pdfDoc=await pdfjsLib.getDocument(pdfUrl).promise;
+    $("#pdfLoading").style.display="none";
+    updatePdfCounters();
+    renderPdfPage();
+  }catch(e){
+    $("#pdfLoading").textContent="No se pudo abrir la presentación. Usa el botón para abrir o descargar el PDF.";
+  }
+}
+async function renderPdfPage(){
+  if(!pdfDoc)return;
+  const page=await pdfDoc.getPage(pdfPageNum);
+  const viewport=page.getViewport({scale:pdfScale});
+  const canvas=$("#pdfCanvas"),ctx=canvas.getContext("2d");
+  canvas.width=viewport.width;
+  canvas.height=viewport.height;
+  await page.render({canvasContext:ctx,viewport}).promise;
+  updatePdfCounters();
+}
+function goPdfPrev(){
+  if(pdfDoc&&pdfPageNum>1){pdfPageNum--;renderPdfPage()}
+}
+function goPdfNext(){
+  if(pdfDoc&&pdfPageNum<pdfDoc.numPages){pdfPageNum++;renderPdfPage()}
+}
+function zoomPdf(delta){
+  pdfScale=Math.min(2.4,Math.max(.55,pdfScale+delta));
+  renderPdfPage();
+}
+$("#pdfPrev").onclick=goPdfPrev;
+$("#pdfNext").onclick=goPdfNext;
+$("#pdfZoomIn").onclick=()=>zoomPdf(.15);
+$("#pdfZoomOut").onclick=()=>zoomPdf(-.15);
+
+function enterPdfFullscreen(){
+  const box=$("#pdfViewer");
+  if(!box)return;
+  if(box.requestFullscreen)box.requestFullscreen();
+  else if(box.webkitRequestFullscreen)box.webkitRequestFullscreen();
+}
+function exitPdfFullscreen(){
+  if(document.exitFullscreen)document.exitFullscreen();
+  else if(document.webkitExitFullscreen)document.webkitExitFullscreen();
+}
+$("#pdfFullscreen").onclick=enterPdfFullscreen;
+$("#pdfFsPrev").onclick=goPdfPrev;
+$("#pdfFsNext").onclick=goPdfNext;
+$("#pdfFsZoomIn").onclick=()=>zoomPdf(.15);
+$("#pdfFsZoomOut").onclick=()=>zoomPdf(-.15);
+$("#pdfFsFullscreen").onclick=exitPdfFullscreen;
+
+const pdfViewer=$("#pdfViewer");
+if(pdfViewer){
+  let touchStartX=0;
+  pdfViewer.addEventListener("touchstart",e=>{
+    touchStartX=e.changedTouches[0].clientX;
+  },{passive:true});
+  pdfViewer.addEventListener("touchend",e=>{
+    const dx=e.changedTouches[0].clientX-touchStartX;
+    if(Math.abs(dx)>55) dx<0?goPdfNext():goPdfPrev();
+  },{passive:true});
+}
+addEventListener("keydown",e=>{
+  if(!pdfViewer)return;
+  const fs=document.fullscreenElement===pdfViewer||document.webkitFullscreenElement===pdfViewer;
+  if(!fs)return;
+  if(e.key==="ArrowLeft")goPdfPrev();
+  if(e.key==="ArrowRight")goPdfNext();
+  if(e.key==="+")zoomPdf(.15);
+  if(e.key==="-")zoomPdf(-.15);
+});
 loadPdf();
-
-
-// Portada propia del video: evita mostrar cualquier fotograma/imagen externa antes de reproducir.
-const videoCover = document.getElementById("videoCover");
-const videoStart = document.getElementById("videoStart");
-const groupVideo = document.getElementById("groupVideo");
-if (videoCover && videoStart && groupVideo) {
-  videoStart.addEventListener("click", () => {
-    videoCover.classList.add("is-hidden");
-    groupVideo.play().catch(() => {});
-  });
-  groupVideo.addEventListener("play", () => videoCover.classList.add("is-hidden"));
-}
-
-
-// Navegación de diapositivas también dentro de pantalla completa + gestos táctiles.
-const pdfFsPrev = document.getElementById("pdfFsPrev");
-const pdfFsNext = document.getElementById("pdfFsNext");
-const goPdfPrev = () => { if (pdfDoc && pdfPageNum > 1) { pdfPageNum--; renderPdfPage(); } };
-const goPdfNext = () => { if (pdfDoc && pdfPageNum < pdfDoc.numPages) { pdfPageNum++; renderPdfPage(); } };
-if (pdfFsPrev && pdfFsNext) { pdfFsPrev.onclick = goPdfPrev; pdfFsNext.onclick = goPdfNext; }
-const pdfViewer = document.getElementById("pdfViewer");
-if (pdfViewer) {
-  let touchStartX = 0;
-  pdfViewer.addEventListener("touchstart", e => { touchStartX = e.changedTouches[0].clientX; }, {passive:true});
-  pdfViewer.addEventListener("touchend", e => {
-    const dx = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(dx) > 55) dx < 0 ? goPdfNext() : goPdfPrev();
-  }, {passive:true});
-}
