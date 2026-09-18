@@ -68,3 +68,20 @@ if (videoCover && videoStart && groupVideo) {
   });
   groupVideo.addEventListener("play", () => videoCover.classList.add("is-hidden"));
 }
+
+
+// Navegación de diapositivas también dentro de pantalla completa + gestos táctiles.
+const pdfFsPrev = document.getElementById("pdfFsPrev");
+const pdfFsNext = document.getElementById("pdfFsNext");
+const goPdfPrev = () => { if (pdfDoc && pdfPageNum > 1) { pdfPageNum--; renderPdfPage(); } };
+const goPdfNext = () => { if (pdfDoc && pdfPageNum < pdfDoc.numPages) { pdfPageNum++; renderPdfPage(); } };
+if (pdfFsPrev && pdfFsNext) { pdfFsPrev.onclick = goPdfPrev; pdfFsNext.onclick = goPdfNext; }
+const pdfViewer = document.getElementById("pdfViewer");
+if (pdfViewer) {
+  let touchStartX = 0;
+  pdfViewer.addEventListener("touchstart", e => { touchStartX = e.changedTouches[0].clientX; }, {passive:true});
+  pdfViewer.addEventListener("touchend", e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 55) dx < 0 ? goPdfNext() : goPdfPrev();
+  }, {passive:true});
+}
