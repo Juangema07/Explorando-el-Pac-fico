@@ -391,3 +391,18 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offse
   .infographic-gallery img{min-height:0;max-height:none}
   .presentation .pdf-viewer{min-height:430px}
 }
+
+
+/* ===== VIDEO: PORTADA PROPIA SIN IMAGEN EXTERNA ===== */
+.video-shell{position:relative;overflow:hidden;border-radius:24px;background:#07130f;border:1px solid rgba(255,255,255,.1);min-height:360px}
+.video-shell video{display:block;width:100%;min-height:360px;max-height:680px;object-fit:contain;background:#050807}
+.video-cover{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:clamp(28px,6vw,72px);background:radial-gradient(circle at 80% 20%,rgba(70,190,143,.24),transparent 34%),linear-gradient(135deg,#081b15 0%,#102b22 55%,#07100d 100%);transition:opacity .28s ease,visibility .28s ease}
+.video-cover::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg,transparent 0 58%,rgba(151,255,215,.08) 58.2% 58.7%,transparent 59%)}
+.video-cover.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
+.video-cover-kicker{position:relative;z-index:1;font-size:.72rem;font-weight:800;letter-spacing:.16em;color:#9ce8ca}
+.video-cover-title{position:relative;z-index:1;margin:12px 0 8px;font-family:Manrope,sans-serif;font-size:clamp(2rem,5vw,4.5rem);line-height:.9;font-weight:800;color:#f5fff9}
+.video-cover-title em{color:#7ce0b5;font-style:normal}
+.video-cover-sub{position:relative;z-index:1;color:rgba(245,255,249,.72);max-width:520px;margin-bottom:26px}
+#videoStart{position:relative;z-index:1;border:0;border-radius:999px;padding:13px 20px;background:#dff9ed;color:#0a2017;font:700 .95rem DM Sans,sans-serif;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.2)}
+#videoStart:hover{transform:translateY(-1px)}
+@media(max-width:700px){.video-shell,.video-shell video{min-height:250px}.video-cover{padding:28px}.video-cover-title{font-size:2.4rem}}
