@@ -396,74 +396,56 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offse
 
 
 
-/* Controles completos dentro de pantalla completa del PDF */
-.pdf-fs-toolbar{
-  display:none;
-  position:absolute;
-  z-index:6;
-  left:50%;
-  bottom:18px;
-  transform:translateX(-50%);
-  align-items:center;
-  gap:8px;
-  padding:9px;
-  border:1px solid rgba(255,255,255,.16);
-  border-radius:16px;
-  background:rgba(3,10,7,.78);
-  backdrop-filter:blur(14px);
-  box-shadow:0 14px 45px rgba(0,0,0,.35);
-}
-.pdf-fs-toolbar span{
-  min-width:64px;
-  padding:9px 8px;
-  color:#dff7ec;
-  font:700 .72rem DM Sans,sans-serif;
-  text-align:center;
-}
-.pdf-fs-toolbar button{
-  border:1px solid rgba(255,255,255,.14);
-  border-radius:10px;
-  padding:9px 12px;
-  background:rgba(255,255,255,.08);
-  color:#fff;
-  font:700 .75rem DM Sans,sans-serif;
-  cursor:pointer;
-}
-.pdf-fs-toolbar button:hover{background:rgba(255,255,255,.15)}
-.pdf-viewer:fullscreen,
-.pdf-viewer:-webkit-full-screen{
-  display:flex;
-  align-items:center;
-  justify-content:center;
+/* Pantalla completa: se reutiliza EXACTAMENTE el mismo toolbar de fuera */
+.pdf-stage{position:relative}
+.pdf-stage:fullscreen,
+.pdf-stage:-webkit-full-screen{
   width:100vw;
   height:100vh;
-  max-width:none;
   margin:0;
-  border-radius:0;
-  background:#050806;
+  padding:0;
+  background:#020806;
 }
-.pdf-viewer:fullscreen #pdfCanvas,
-.pdf-viewer:-webkit-full-screen #pdfCanvas{
+.pdf-stage:fullscreen .pdf-toolbar,
+.pdf-stage:-webkit-full-screen .pdf-toolbar{
+  position:absolute;
+  z-index:20;
+  left:18px;
+  right:18px;
+  bottom:18px;
+  margin:0;
+}
+.pdf-stage:fullscreen .pdf-viewer,
+.pdf-stage:-webkit-full-screen .pdf-viewer{
+  width:100vw;
+  height:100vh;
+  min-height:0;
+  margin:0;
+  padding:20px;
+  border:0;
+  border-radius:0;
+  overflow:auto;
+  background:#020806;
+  display:grid;
+  place-items:center;
+}
+.pdf-stage:fullscreen #pdfCanvas,
+.pdf-stage:-webkit-full-screen #pdfCanvas{
   max-width:92vw;
   max-height:82vh;
   width:auto;
   height:auto;
   object-fit:contain;
 }
-.pdf-viewer:fullscreen .pdf-fs-toolbar,
-.pdf-viewer:-webkit-full-screen .pdf-fs-toolbar{display:flex}
 @media(max-width:700px){
-  .pdf-fs-toolbar{
-    bottom:10px;
-    width:calc(100% - 16px);
-    justify-content:center;
-    gap:5px;
-    padding:7px;
+  .pdf-stage:fullscreen .pdf-toolbar,
+  .pdf-stage:-webkit-full-screen .pdf-toolbar{
+    left:8px;
+    right:8px;
+    bottom:8px;
   }
-  .pdf-fs-toolbar span{min-width:48px;padding:8px 4px;font-size:.65rem}
-  .pdf-fs-toolbar button{padding:8px 8px;font-size:.68rem}
-  .pdf-viewer:fullscreen #pdfCanvas,
-  .pdf-viewer:-webkit-full-screen #pdfCanvas{
+  .pdf-stage:fullscreen #pdfCanvas,
+  .pdf-stage:-webkit-full-screen #pdfCanvas{
     max-width:96vw;
     max-height:76vh;
   }
