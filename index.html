@@ -1,172 +1,259 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Explorando el Pacífico Colombiano: geografía, población, cultura, economía, biodiversidad y desafíos.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Pacífico Colombiano: territorio, geografía física, biodiversidad, población, cultura, economía, desafíos y materiales del proyecto Colombia en la Web.">
 <title>Pacífico Colombiano · Exploratorio 11°</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="progress"></div>
 <header>
-<a class="brand" href="#inicio"><span class="brand-mark">PC</span><span><small>COLOMBIA EN LA WEB</small><strong>Pacífico<br>Exploratorio</strong></span></a>
+<a class="brand" href="#inicio"><span class="brand-mark">PC</span><span><small>COLOMBIA EN LA WEB · GRADO 11°</small><strong>Pacífico<br>Exploratorio</strong></span></a>
 <button id="menu" aria-label="Abrir menú">☰</button>
-<nav id="nav"><a href="#ubicacion">Territorio</a><a href="#geografia">Geografía</a><a href="#vida">Vida</a><a href="#cultura">Cultura</a><a href="#economia">Actividades</a><a href="#desafios">Desafíos</a><a href="#juegos">Juegos</a><a href="#materiales">Materiales</a><a href="#fuentes">Fuentes</a></nav>
+<nav id="nav">
+<a href="#ubicacion">Territorio</a><a href="#geografia">Geografía</a><a href="#vida">Biodiversidad</a><a href="#cultura">Cultura</a><a href="#economia">Economía</a><a href="#desafios">Desafíos</a><a href="#juegos">Juegos</a><a href="#materiales">Archivo</a><a href="#fuentes">Fuentes</a>
+</nav>
 </header>
 
 <main>
 <section id="inicio" class="hero">
 <div class="hero-bg"></div><div class="hero-noise"></div><div class="veil"></div>
 <div class="hero-content reveal">
-<span class="eyebrow">EXPLORATORIO DIGITAL · GRADO 11°</span>
+<span class="eyebrow">EXPLORATORIO DIGITAL · PROYECTO ESCOLAR</span>
 <h1>Pacífico<br><em>Colombiano</em></h1>
-<p class="lead">Una ruta interactiva por selvas, ríos, océano, biodiversidad, comunidades, cultura y actividades económicas.</p>
-<div class="hero-actions"><a class="btn" href="#ubicacion">Iniciar exploración ↓</a><a class="text-btn" href="#juegos">Ir directo a jugar →</a></div>
+<p class="lead">Un recorrido interactivo por un territorio de selvas húmedas, ríos, manglares, costa, océano, biodiversidad, comunidades, cultura y actividades económicas.</p>
+<div class="hero-actions"><a class="btn" href="#ubicacion">Explorar el territorio ↓</a><a class="text-btn" href="#juegos">Pon a prueba tus conocimientos →</a></div>
 </div>
-<div class="hero-orbit"><span>SELVA</span><i></i><span>RÍO</span><i></i><span>MAR</span><i></i><span>MEMORIA</span></div>
+<div class="hero-orbit"><span>SELVA</span><i></i><span>RÍO</span><i></i><span>OCÉANO</span><i></i><span>MEMORIA</span></div>
 <div class="hero-stats"><b>04<small>departamentos</small></b><b>∞<small>conexiones naturales</small></b><b>11°<small>proyecto escolar</small></b></div>
 </section>
 
 <section id="ubicacion" class="section dark">
 <div class="wrap">
-<div class="title reveal"><span class="eyebrow">01 · TERRITORIO</span><h2>Donde la montaña encuentra el <em>océano.</em></h2><p>Para este proyecto usamos la agrupación regional del DANE: <strong>Cauca, Chocó, Nariño y Valle del Cauca.</strong> El Pacífico reúne litoral, selvas, ríos, manglares, esteros y ambientes marino-costeros.</p></div>
+<div class="title reveal"><span class="eyebrow">01 · ¿DÓNDE ESTÁ?</span><h2>Un territorio entre <em>ríos, selvas y océano.</em></h2>
+<p>Para este proyecto se utiliza la agrupación regional del DANE: <strong>Cauca, Chocó, Nariño y Valle del Cauca.</strong> El territorio pacífico reúne litoral, selvas húmedas, ríos, esteros, manglares, islas y ambientes marino-costeros.</p></div>
 <div class="territory-grid reveal">
 <div class="map-card"><div class="map-grid"></div><div class="coast-shape"></div><span class="ocean-label">OCÉANO PACÍFICO</span><b class="pin pin1">CHOCÓ</b><b class="pin pin2">VALLE</b><b class="pin pin3">CAUCA</b><b class="pin pin4">NARIÑO</b><div class="map-compass">N<br><span>↑</span></div></div>
 <div class="department-list">
-<button data-info="choco"><span>01</span><strong>Chocó</strong><small>Litoral, selva, ríos y serranías</small><b>+</b></button>
-<button data-info="valle"><span>02</span><strong>Valle del Cauca</strong><small>Buenaventura y conexión marítima</small><b>+</b></button>
+<button data-info="choco"><span>01</span><strong>Chocó</strong><small>Litoral, selva, ríos, manglares y serranías</small><b>+</b></button>
+<button data-info="valle"><span>02</span><strong>Valle del Cauca</strong><small>Buenaventura, litoral y conexión portuaria</small><b>+</b></button>
 <button data-info="cauca"><span>03</span><strong>Cauca</strong><small>Guapi, Timbiquí, López de Micay y Gorgona</small><b>+</b></button>
-<button data-info="narino"><span>04</span><strong>Nariño</strong><small>Tumaco, esteros y Cabo Manglares</small><b>+</b></button>
+<button data-info="narino"><span>04</span><strong>Nariño</strong><small>Tumaco, esteros, manglares y Cabo Manglares</small><b>+</b></button>
+</div></div>
+<div class="fact-strip reveal">
+<span>🌧️ <b>Lluvia</b><small>humedad y precipitaciones abundantes</small></span>
+<span>🌿 <b>Selva</b><small>bosques tropicales de gran diversidad</small></span>
+<span>🌊 <b>Océano</b><small>costa, estuarios y ambientes marinos</small></span>
+<span>🧭 <b>Territorio</b><small>ríos, comunidades y conectividad</small></span>
 </div>
-</div>
-<div class="fact-strip reveal"><span>🌧️ <b>Agua</b><small>lluvias abundantes</small></span><span>🌿 <b>Bosque</b><small>selvas húmedas</small></span><span>🌊 <b>Océano</b><small>litoral y estuarios</small></span><span>🧭 <b>Territorio</b><small>diversidad regional</small></span></div>
+<div class="source-ribbon reveal"><span>FUENTE BASE</span><strong>DANE · Cuentas Regionales</strong><a href="https://www.dane.gov.co/" target="_blank" rel="noopener">Consultar información oficial ↗</a></div>
 </div>
 </section>
 
 <section id="geografia" class="section photo forest">
 <div class="wrap">
-<div class="title light reveal"><span class="eyebrow">02 · GEOGRAFÍA FÍSICA</span><h2>El territorio se entiende <em>con agua.</em></h2><p>Relieve, clima, hidrografía y ecosistemas se conectan para explicar la forma y la dinámica del Pacífico.</p></div>
+<div class="title light reveal"><span class="eyebrow">02 · TERRITORIO</span><h2>La geografía se entiende <em>como un sistema.</em></h2><p>Relieve, clima, agua y ecosistemas están conectados. Cada elemento ayuda a explicar la vida y las actividades que se desarrollan en el territorio.</p></div>
 <div class="cards three reveal">
-<article class="visual-card"><div class="pic relief"></div><span class="card-index">A · RELIEVE</span><h3>Serranías y llanuras</h3><p>La Serranía del Baudó, llanuras costeras y valles fluviales ayudan a explicar la diversidad del territorio.</p><button data-info="relieve">Ver ficha →</button></article>
-<article class="visual-card"><div class="pic rivers"></div><span class="card-index">B · HIDROGRAFÍA</span><h3>Ríos que conectan</h3><p>Atrato, San Juan, Baudó, Mira y Patía forman parte de la red hidrográfica asociada al Pacífico.</p><button data-info="rios">Ver ficha →</button></article>
-<article class="visual-card"><div class="pic rain"></div><span class="card-index">C · CLIMA</span><h3>Humedad y lluvia</h3><p>Amplias zonas presentan condiciones cálidas, húmedas y precipitaciones muy abundantes.</p><button data-info="clima">Ver ficha →</button></article>
+<article class="visual-card"><div class="pic relief"></div><span class="card-index">A · RELIEVE</span><h3>Serranías, llanuras y valles</h3><p>El territorio combina sectores montañosos, llanuras costeras y valles asociados a los grandes ríos.</p><button data-info="relieve">Profundizar →</button></article>
+<article class="visual-card"><div class="pic rivers"></div><span class="card-index">B · HIDROGRAFÍA</span><h3>Ríos que conectan</h3><p>Atrato, San Juan, Baudó, Mira y Patía hacen parte de la red hidrográfica asociada al Pacífico.</p><button data-info="rios">Profundizar →</button></article>
+<article class="visual-card"><div class="pic rain"></div><span class="card-index">C · CLIMA</span><h3>Humedad y lluvia</h3><p>Amplias zonas presentan condiciones cálidas, húmedas y precipitaciones muy abundantes.</p><button data-info="clima">Profundizar →</button></article>
 </div>
-<div class="ecosystem-band reveal"><div><small>ECOSISTEMAS</small><h3>Cuatro ambientes, una misma red.</h3></div><button data-info="selva">🌿 <b>Selva húmeda</b><small>Bosque tropical</small></button><button data-info="manglar">🪴 <b>Manglares</b><small>Tierra + mar</small></button><button data-info="estuario">〰️ <b>Estuarios</b><small>Agua dulce + salada</small></button><button data-info="marino">🐚 <b>Marino-costero</b><small>Litoral y mar</small></button></div>
+<div class="ecosystem-band reveal"><div><small>ECOSISTEMAS</small><h3>Ambientes conectados por el agua.</h3><p>De la selva al océano existe una continuidad ecológica.</p></div>
+<button data-info="selva">🌿 <b>Selva húmeda</b><small>Bosque tropical</small></button>
+<button data-info="manglar">🪴 <b>Manglares</b><small>Tierra + mar</small></button>
+<button data-info="estuario">〰️ <b>Estuarios</b><small>Agua dulce + salada</small></button>
+<button data-info="marino">🐚 <b>Marino-costero</b><small>Litoral y mar</small></button>
+</div>
+</div>
+</section>
+
+<section class="section dark water-story">
+<div class="wrap">
+<div class="title reveal"><span class="eyebrow">02.1 · EL CICLO DEL AGUA</span><h2>Cuando el agua también es <em>camino.</em></h2><p>En el Pacífico, el agua relaciona ecosistemas y comunidades: los ríos desembocan en estuarios, los manglares reciben influencia marina y las rutas fluviales pueden ser fundamentales para la movilidad cotidiana.</p></div>
+<div class="flow-line reveal">
+<div><span>01</span><b>Nace</b><small>Fuentes y zonas altas alimentan quebradas y ríos.</small></div>
+<div><span>02</span><b>Conecta</b><small>Los cauces comunican poblaciones, bosques y zonas productivas.</small></div>
+<div><span>03</span><b>Se mezcla</b><small>Estuarios y manglares reciben agua continental y marina.</small></div>
+<div><span>04</span><b>Llega al océano</b><small>El sistema continúa hacia el ambiente marino-costero.</small></div>
+</div>
+<div class="quote-band reveal"><span>IDEA CLAVE</span><strong>Un río no es solamente un recurso: también puede ser hábitat, vía de movilidad, fuente de alimento y espacio de encuentro.</strong></div>
 </div>
 </section>
 
 <section id="vida" class="section dark life-section">
 <div class="wrap">
-<div class="title reveal"><span class="eyebrow">03 · BIODIVERSIDAD</span><h2>Una región que funciona como <em>red viva.</em></h2><p>La combinación de selvas, manglares, ríos y mar ofrece hábitats para especies residentes y migratorias.</p></div>
+<div class="title reveal"><span class="eyebrow">03 · BIODIVERSIDAD</span><h2>Una región que funciona como <em>red viva.</em></h2><p>La combinación de selvas, manglares, ríos y mar crea numerosos hábitats para especies residentes y migratorias.</p></div>
 <div class="species-grid reveal">
 <button data-info="yubarta" class="species-card whale"><span>🐋</span><b>Yubarta</b><small>Visitante migratoria</small><em>01</em></button>
-<button data-info="tortugas" class="species-card turtle"><span>🐢</span><b>Tortugas marinas</b><small>Hábitats costeros</small><em>02</em></button>
+<button data-info="tortugas" class="species-card turtle"><span>🐢</span><b>Tortugas marinas</b><small>Playas y aguas costeras</small><em>02</em></button>
 <button data-info="aves" class="species-card birds"><span>🦜</span><b>Aves</b><small>Selva, manglar y litoral</small><em>03</em></button>
-<button data-info="corales" class="species-card coral"><span>🪸</span><b>Ambientes coralinos</b><small>Vida marina</small><em>04</em></button>
+<button data-info="peces" class="species-card fish"><span>🐟</span><b>Peces y fauna acuática</b><small>Ríos, esteros y mar</small><em>04</em></button>
 </div>
-<div class="didyouknow reveal"><span>¿SABÍAS QUE?</span><strong>La presencia de la yubarta conecta el Pacífico colombiano con un fenómeno migratorio de gran importancia natural.</strong><button data-info="yubarta">Descubrir →</button></div>
+<div class="didyouknow reveal"><span>¿SABÍAS QUE?</span><strong>Entre julio y noviembre, la costa pacífica colombiana recibe yubartas que recorren miles de kilómetros hasta sus aguas cálidas.</strong><button data-info="yubarta">Ver información →</button></div>
+<div class="biodiversity-note reveal"><span>🌱 CONSERVACIÓN</span><p>La protección de bosques, manglares, ríos y ambientes marinos ayuda a conservar hábitats conectados. MinAmbiente también ha documentado acciones de restauración de manglares con participación de comunidades del litoral.</p><a href="https://www.minambiente.gov.co/biomanglar-proyecto-que-restaurara-manglares-en-el-choco-biogeografico/" target="_blank" rel="noopener">Leer sobre Biomanglar ↗</a></div>
 </div>
 </section>
 
 <section id="cultura" class="section culture photo">
 <div class="veil"></div><div class="wrap relative">
-<div class="title light reveal"><span class="eyebrow">04 · GEOGRAFÍA HUMANA</span><h2>Personas, territorio y <em>memoria.</em></h2><p>Las relaciones entre población, ríos, costa, selva y centros urbanos ayudan a comprender la vida regional. Hay presencia de comunidades afrocolombianas, indígenas y campesinas.</p></div>
+<div class="title light reveal"><span class="eyebrow">04 · GEOGRAFÍA HUMANA</span><h2>Personas, territorio y <em>memoria.</em></h2><p>La vida regional se construye en relación con ríos, costa, selva y centros urbanos. Hay presencia de comunidades afrocolombianas, indígenas y campesinas, con saberes y formas de organización vinculadas al territorio.</p></div>
 <div class="human-grid reveal">
 <article><span>POBLACIÓN</span><h3>Ciudades y ruralidad</h3><p>Buenaventura, Quibdó y Tumaco son centros urbanos importantes. La población también se distribuye en cabeceras y áreas rurales.</p><button data-info="poblacion">Explorar →</button></article>
-<article><span>CULTURA</span><h3>Saberes que permanecen</h3><p>Gastronomía, oralidad, artesanías, música, danza, celebraciones y memoria expresan relaciones con el territorio.</p><button data-info="cultura">Explorar →</button></article>
-<article><span>TERRITORIO</span><h3>Ríos como caminos</h3><p>Ríos y esteros cumplen funciones de movilidad, pesca, alimentación, trabajo y encuentro comunitario.</p><button data-info="territorio">Explorar →</button></article>
+<article><span>COMUNIDAD</span><h3>Saberes que permanecen</h3><p>La oralidad, gastronomía, artesanías, música, danza, celebraciones y memoria transmiten conocimientos entre generaciones.</p><button data-info="cultura">Explorar →</button></article>
+<article><span>TERRITORIO</span><h3>Ríos como caminos</h3><p>Ríos y esteros pueden cumplir funciones de movilidad, pesca, alimentación, trabajo y encuentro comunitario.</p><button data-info="territorio">Explorar →</button></article>
 </div>
 </div></section>
 
 <section class="section dark heritage">
-<div class="wrap split reveal"><div class="culture-photo"></div><div><span class="eyebrow">PATRIMONIO CULTURAL</span><h2>Marimba, cantos y <em>baile.</em></h2><p>Las músicas de marimba y los cantos y bailes tradicionales del Pacífico Sur forman parte del patrimonio cultural inmaterial. Su transmisión ocurre en contextos familiares y comunitarios.</p><div class="tags"><button data-info="currulao">CURRULAO</button><button data-info="arrullo">ARRULLO</button><button data-info="alabao">ALABAO</button><button data-info="juga">JUGA</button></div><div class="heritage-note">🎵 Marimba de chonta · cununos · guasá · voces</div></div></div>
+<div class="wrap split reveal"><div class="culture-photo"></div><div><span class="eyebrow">PATRIMONIO CULTURAL</span><h2>Marimba, cantos y <em>baile.</em></h2>
+<p>El Ministerio de las Culturas registra las músicas de marimba y los cantos y bailes tradicionales del Pacífico Sur como patrimonio cultural inmaterial inscrito en 2015 en la Lista Representativa del Patrimonio Cultural Inmaterial de la Humanidad. La marimba se interpreta con un xilófono de madera de palma y resonadores de bambú, acompañado por tambores y maracas.</p>
+<div class="tags"><button data-info="currulao">CURRULAO</button><button data-info="arrullo">ARRULLO</button><button data-info="alabao">ALABAO</button><button data-info="juga">JUGA</button></div>
+<div class="heritage-note">🎵 Marimba de chonta · cununos · guasá · voces · transmisión comunitaria</div>
+<a class="inline-source" href="https://mincultura.gov.co/direcciones/patrimonio-y-memoria/Paginas/servicios-informacion/LRPCI/musicas-de-marimba-y-cantos-tradicionales-del-pacifico-sur-colombiano.aspx" target="_blank" rel="noopener">Fuente: Ministerio de las Culturas ↗</a>
+</div></div>
 </section>
 
 <section id="economia" class="section photo economy">
 <div class="wrap">
-<div class="title light reveal"><span class="eyebrow">05 · GEOGRAFÍA ECONÓMICA</span><h2>Actividades que conectan <em>territorio y sociedad.</em></h2><p>La economía regional combina actividades del sector primario y terciario, además de comercio, servicios y transporte.</p></div>
-<div class="sector-legend reveal"><span><b>PRIMARIO</b> Recursos naturales</span><span><b>SECUNDARIO</b> Transformación</span><span><b>TERCIARIO</b> Servicios y conexión</span></div>
+<div class="title light reveal"><span class="eyebrow">05 · PRODUCCIÓN</span><h2>Economía: recursos, trabajo y <em>conectividad.</em></h2><p>Las actividades productivas están relacionadas con los recursos naturales, el océano, los ríos, los bosques, las ciudades y las vías de conexión.</p></div>
+<div class="sector-legend reveal"><span><b>PRIMARIO</b> extracción y producción</span><span><b>SECUNDARIO</b> transformación</span><span><b>TERCIARIO</b> servicios y conexión</span></div>
 <div class="econ reveal">
 <button data-info="agricultura"><span>🌾</span><b>Agricultura</b><small>Producción y alimentación</small></button>
 <button data-info="pesca"><span>🐟</span><b>Pesca</b><small>Ríos, esteros y mar</small></button>
-<button data-info="mineria"><span>⛏️</span><b>Minería</b><small>Recurso y desafío</small></button>
+<button data-info="mineria"><span>⛏️</span><b>Minería</b><small>Actividad histórica y desafío</small></button>
+<button data-info="transformacion"><span>🏭</span><b>Transformación</b><small>Procesamiento de productos</small></button>
 <button data-info="puertos"><span>🚢</span><b>Puertos</b><small>Conectividad marítima</small></button>
 <button data-info="turismo"><span>🌴</span><b>Turismo</b><small>Naturaleza y cultura</small></button>
-<button data-info="forestal"><span>🪵</span><b>Forestal</b><small>Uso del bosque</small></button>
 </div>
-<div class="callout reveal"><span>📊 DATO REGIONAL</span><b>DANE reportó para 2023 un PIB regional a precios corrientes de 211 billones de pesos para la región Pacífica de sus cuentas regionales.</b><small>Consulta la fuente para conocer metodología y cifras actualizadas.</small></div>
+<div class="callout reveal"><span>📊 DATO REGIONAL · DANE</span><b>En 2023 preliminar, la región Pacífica registró un PIB a precios corrientes de 211 billones de pesos y representó el 13,4 % de la economía nacional en las cuentas regionales del DANE.</b><small>El dato corresponde a la agrupación Pacífica usada por DANE: Cauca, Chocó, Nariño y Valle del Cauca.</small></div>
 </div></section>
 
+<section class="section dark economy-map">
+<div class="wrap">
+<div class="title reveal"><span class="eyebrow">05.1 · CADENA TERRITORIAL</span><h2>Del recurso al <em>servicio.</em></h2><p>Una misma actividad puede relacionar producción, transformación, transporte, comercio y servicios.</p></div>
+<div class="chain reveal">
+<div><span>01</span><b>Recurso</b><small>Agua, bosque, pesca, cultivos y minerales.</small></div><i>→</i>
+<div><span>02</span><b>Producción</b><small>Trabajo de comunidades y unidades productivas.</small></div><i>→</i>
+<div><span>03</span><b>Transformación</b><small>Alimentos y otros productos pueden procesarse.</small></div><i>→</i>
+<div><span>04</span><b>Conexión</b><small>Puertos, transporte, comercio y servicios.</small></div>
+</div>
+</div>
+</section>
+
 <section class="section dark places-section">
-<div class="wrap"><div class="title reveal"><span class="eyebrow">06 · DESTINOS Y ÁREAS PROTEGIDAS</span><h2>Cuatro ventanas hacia el <em>Pacífico.</em></h2></div>
+<div class="wrap"><div class="title reveal"><span class="eyebrow">06 · NATURALEZA PROTEGIDA</span><h2>Espacios donde la conservación toma <em>forma.</em></h2><p>Áreas protegidas y territorios costeros permiten reconocer la relación entre biodiversidad, investigación, turismo de naturaleza y protección ambiental.</p></div>
 <div class="places reveal">
 <button data-info="utria" class="place utria"><span>CHOCÓ</span><b>Utría</b><small>Selva · manglares · costa</small></button>
 <button data-info="gorgona" class="place gorgona"><span>CAUCA</span><b>Gorgona</b><small>Selva · mar · arrecifes</small></button>
 <button data-info="malaga" class="place malaga"><span>VALLE DEL CAUCA</span><b>Uramba Bahía Málaga</b><small>Manglares · esteros · mar</small></button>
 <button data-info="manglares-sur" class="place manglares"><span>NARIÑO</span><b>Cabo Manglares</b><small>Manglares · estuarios</small></button>
-</div></div>
+</div>
+<div class="source-ribbon reveal"><span>INVESTIGACIÓN</span><strong>Consulta Parques Nacionales para conocer áreas protegidas y sus características.</strong><a href="https://www.parquesnacionales.gov.co/" target="_blank" rel="noopener">Ir a Parques Nacionales ↗</a></div>
+</div>
 </section>
 
 <section id="desafios" class="section challenge">
-<div class="veil"></div><div class="wrap relative"><div class="title light reveal"><span class="eyebrow">07 · DESAFÍOS</span><h2>Entender el problema es el primer paso para <em>pensar soluciones.</em></h2><p>Analiza cada reto con cuatro preguntas: ¿qué lo causa?, ¿qué consecuencias produce?, ¿a quién afecta? y ¿qué respuestas pueden plantearse?</p></div>
+<div class="veil"></div><div class="wrap relative"><div class="title light reveal"><span class="eyebrow">07 · DESAFÍOS</span><h2>Riqueza natural y retos que exigen <em>respuestas.</em></h2><p>Para analizar cada problema conviene preguntar: ¿qué lo causa?, ¿qué consecuencias produce?, ¿a quién afecta? y ¿qué respuestas pueden plantearse?</p></div>
 <div class="challenge-grid reveal">
 <button data-info="deforestacion"><span>01</span><b>Deforestación</b><small>Pérdida de cobertura y presión sobre el bosque.</small></button>
 <button data-info="mineria-ilegal"><span>02</span><b>Minería ilegal</b><small>Presiones sobre agua, suelos y ecosistemas.</small></button>
 <button data-info="desigualdad"><span>03</span><b>Acceso desigual</b><small>Servicios, conectividad y oportunidades.</small></button>
-<button data-info="contaminacion"><span>04</span><b>Presión ambiental</b><small>Residuos, sobreexplotación y cambio climático.</small></button>
+<button data-info="contaminacion"><span>04</span><b>Presión ambiental</b><small>Residuos, contaminación y cambios climáticos.</small></button>
 </div>
+<div class="reflection reveal"><span>ESPACIO DE REFLEXIÓN</span><h3>¿Cómo conservar el territorio y fortalecer las oportunidades de sus comunidades?</h3><div><b>🌱 Conservar</b><small>Proteger selvas, manglares, ríos y ambientes marinos.</small></div><div><b>👥 Incluir</b><small>Reconocer la participación y los conocimientos comunitarios.</small></div><div><b>💡 Innovar</b><small>Buscar actividades económicas compatibles con la conservación.</small></div></div>
 </div></section>
 
 <section id="juegos" class="section dark games-section">
 <div class="wrap">
-<div class="title reveal"><span class="eyebrow">08 · LABORATORIO INTERACTIVO</span><h2>Clasifica, recuerda, ordena y <em>decide.</em></h2><p>Cuatro actividades para comprobar lo aprendido. Cada juego trabaja una habilidad diferente.</p></div>
-<div class="game-tabs reveal"><button class="active" data-game="quiz">🧠 Quiz</button><button data-game="memory">🃏 Memoria</button><button data-game="route">🌊 Ruta del río</button><button data-game="classify">🧩 Clasifica las actividades</button><button data-game="decisions">🌱 Decisiones</button></div>
-
+<div class="title reveal"><span class="eyebrow">08 · APRENDE JUGANDO</span><h2>Clasifica, recuerda, ordena y <em>decide.</em></h2><p>Actividades creadas para esta página y basadas en los contenidos del Pacífico.</p></div>
+<div class="game-tabs reveal"><button class="active" data-game="quiz">🧠 Quiz</button><button data-game="memory">🃏 Memoria</button><button data-game="route">🌊 Ruta del río</button><button data-game="classify">🧩 Clasifica actividades</button><button data-game="decisions">🌱 Decisiones</button></div>
 <div id="quiz" class="game active reveal"><div class="game-intro"><span>RETO 01</span><b>Comprueba tus conocimientos.</b></div><div class="gamehead"><span id="qCount"></span><span id="qScore"></span></div><div class="bar"><i id="qBar"></i></div><h3 id="qText"></h3><div id="qOptions"></div><p id="qFeedback"></p><button class="btn hidden" id="nextQ">Siguiente →</button></div>
-
 <div id="memory" class="game reveal"><div class="game-intro"><span>RETO 02</span><b>Encuentra las parejas del territorio.</b></div><div class="gamehead"><span>Asocia símbolos del Pacífico</span><span id="moves">0 movimientos</span></div><div id="memoryBoard" class="memory"></div><button class="btn ghost" id="resetMemory">Reiniciar</button></div>
-
 <div id="route" class="game reveal"><div class="game-intro"><span>RETO 03</span><b>Reconstruye una ruta fluvial.</b></div><h3>Ruta del río</h3><p>Ordena desde el nacimiento hasta el océano.</p><div id="routeChoices" class="route"></div><button class="btn" id="checkRoute">Comprobar ruta</button><p id="routeResult"></p></div>
-
-<div id="classify" class="game reveal"><div class="game-intro"><span>RETO 04 · NUEVO</span><b>Clasifica las actividades económicas.</b></div><p>Selecciona primero un sector y luego coloca cada actividad en su categoría. Puedes hacerlo desde el celular con botones grandes.</p><div class="classification-score"><span id="classifyScore">0 / 6</span><small>clasificaciones correctas</small></div><div class="sector-buttons"><button data-sector="primario">🌿 Primario</button><button data-sector="secundario">🏭 Secundario</button><button data-sector="terciario">🚢 Terciario</button></div><div id="classifyCards" class="classify-cards"></div><p id="classifyFeedback"></p><button class="btn ghost" id="resetClassify">Reiniciar clasificación</button></div>
-
-<div id="decisions" class="game reveal"><div class="game-intro"><span>RETO 05</span><b>Piensa en ambiente, comunidad y economía.</b></div><h3>Decisiones sobre el territorio</h3><p>Escoge una respuesta que considere más de una dimensión del territorio.</p><div id="decisionBox"></div></div>
+<div id="classify" class="game reveal"><div class="game-intro"><span>RETO 04</span><b>Clasifica las actividades económicas.</b></div><p>Selecciona un sector y clasifica cada actividad.</p><div class="classification-score"><span id="classifyScore">0 / 6</span><small>clasificaciones correctas</small></div><div class="sector-buttons"><button data-sector="primario">🌿 Primario</button><button data-sector="secundario">🏭 Secundario</button><button data-sector="terciario">🚢 Terciario</button></div><div id="classifyCards" class="classify-cards"></div><p id="classifyFeedback"></p><button class="btn ghost" id="resetClassify">Reiniciar</button></div>
+<div id="decisions" class="game reveal"><div class="game-intro"><span>RETO 05</span><b>Piensa en ambiente, comunidad y economía.</b></div><h3>Decisiones sobre el territorio</h3><p>Escoge una respuesta considerando más de una dimensión del territorio.</p><div id="decisionBox"></div></div>
 </div></section>
 
 <section class="section photo knowledge">
-<div class="wrap"><div class="title light reveal"><span class="eyebrow">09 · CUADERNO DE CAMPO</span><h2>Pequeñas pistas para <em>entender más.</em></h2></div>
+<div class="wrap"><div class="title light reveal"><span class="eyebrow">09 · CUADERNO DE CAMPO</span><h2>Cuatro pistas para <em>leer el Pacífico.</em></h2></div>
 <div class="knowledge-grid reveal">
-<article><span>01</span><b>Ríos</b><p>No son solo agua: también pueden ser caminos, espacios de pesca y lugares de encuentro.</p></article>
-<article><span>02</span><b>Manglares</b><p>Son ecosistemas de transición que conectan ambientes terrestres y marinos.</p></article>
-<article><span>03</span><b>Cultura</b><p>La música y la oralidad ayudan a transmitir conocimientos y memoria comunitaria.</p></article>
-<article><span>04</span><b>Economía</b><p>Las actividades productivas están relacionadas con las condiciones y recursos del territorio.</p></article>
-</div></div></section>
+<article><span>01</span><b>Agua</b><p>Ríos, quebradas, esteros y océano forman una red que influye en ecosistemas, movilidad y actividades productivas.</p></article>
+<article><span>02</span><b>Manglar</b><p>Es un ecosistema de transición. MinAmbiente señala su importancia ecológica y socioambiental para el litoral.</p></article>
+<article><span>03</span><b>Patrimonio</b><p>La música de marimba, los cantos y bailes tradicionales se relacionan con la memoria y la vida comunitaria.</p></article>
+<article><span>04</span><b>Economía</b><p>Producción, transformación, transporte, comercio y servicios se conectan con las condiciones del territorio.</p></article>
+</div>
+</div></section>
 
 <section id="materiales" class="section media">
-<div class="wrap"><div class="title reveal"><span class="eyebrow">10 · PRODUCTOS DEL GRUPO</span><h2>Materiales que completan la <em>experiencia.</em></h2><p>Espacios preparados para integrar los productos exigidos por el proyecto.</p></div>
-<div class="media-grid reveal"><article><b>🎬</b><h3>Video</h3><p>3–5 minutos · producción original.</p><div class="slot">AÚN NO AGREGADO</div></article><article><b>🎙️</b><h3>Podcast</h3><p>5–8 minutos · producción original.</p><div class="slot">AÚN NO AGREGADO</div></article><article><b>📊</b><h3>Infografías</h3><p>Geografía física + humana/económica.</p><div class="slot">AÚN NO AGREGADO</div></article><article><b>📽️</b><h3>PowerPoint</h3><p>10–15 diapositivas.</p><div class="slot">AÚN NO AGREGADO</div></article></div>
-<div class="asset-note reveal"><b>Carpetas listas en GitHub:</b> <code>assets/video/</code> · <code>assets/audio/</code> · <code>assets/infografias/</code> · <code>assets/presentacion/</code> · <code>assets/images/</code></div>
-</div></section>
+<div class="wrap">
+<div class="title reveal"><span class="eyebrow">10 · ARCHIVO DEL PROYECTO</span><h2>Los productos del grupo, <em>dentro de la experiencia.</em></h2><p>Ahora los materiales que agregaste al repositorio se integran directamente en la web: video, podcast, infografías y presentación.</p></div>
 
-<section id="fuentes" class="section dark">
-<div class="wrap"><div class="title reveal"><span class="eyebrow">11 · PARA SEGUIR EXPLORANDO</span><h2>Fuentes <em>confiables.</em></h2><p>Información institucional para ampliar la investigación y consultar datos de primera mano.</p></div>
-<div class="sources reveal">
-<a href="https://www.dane.gov.co/" target="_blank" rel="noopener"><span>📊</span><b>DANE</b><small>Información estadística y demográfica de Colombia.</small>↗</a>
-<a href="https://www.igac.gov.co/" target="_blank" rel="noopener"><span>🗺️</span><b>IGAC</b><small>Información geográfica, cartográfica y territorial.</small>↗</a>
-<a href="https://www.parquesnacionales.gov.co/" target="_blank" rel="noopener"><span>🌳</span><b>Parques Nacionales</b><small>Áreas protegidas y biodiversidad.</small>↗</a>
-<a href="https://www.minambiente.gov.co/" target="_blank" rel="noopener"><span>🌱</span><b>MinAmbiente</b><small>Información ambiental y conservación.</small>↗</a>
-<a href="https://www.mineducacion.gov.co/" target="_blank" rel="noopener"><span>🎓</span><b>MinEducación</b><small>Información oficial relacionada con educación.</small>↗</a>
-<a href="https://mincultura.gov.co/" target="_blank" rel="noopener"><span>🎵</span><b>Ministerio de las Culturas</b><small>Patrimonio y manifestaciones culturales.</small>↗</a>
+<div class="media-feature reveal">
+<div class="media-heading"><span>🎬 · VIDEO DEL GRUPO</span><b>Producción audiovisual</b><small>Reproducible desde la página.</small></div>
+<video id="groupVideo" controls preload="metadata" playsinline src="VID-20260916-WA0008.mp4"></video>
 </div>
-<div class="bibliography reveal"><span class="eyebrow">BIBLIOGRAFÍA</span><h3>Fuentes consultadas</h3><ul><li>Departamento Administrativo Nacional de Estadística — DANE.</li><li>Instituto Geográfico Agustín Codazzi — IGAC.</li><li>Parques Nacionales Naturales de Colombia.</li><li>Ministerio de Ambiente y Desarrollo Sostenible.</li><li>Ministerio de Educación Nacional.</li><li>Gobernaciones y alcaldías de los departamentos y municipios estudiados.</li><li>Publicaciones académicas y científicas relacionadas con el Chocó biogeográfico.</li></ul></div>
+
+<div class="media-feature reveal">
+<div class="media-heading"><span>🎙️ · PODCAST DEL GRUPO</span><b>Escucha el contenido</b><small>Audio integrado con controles.</small></div>
+<audio controls preload="metadata" src="AUD-20260916-WA0007.mp3"></audio>
+</div>
+
+<div class="media-feature reveal infographics-feature">
+<div class="media-heading"><span>📊 · INFOGRAFÍAS</span><b>Material visual de apoyo</b><small>Las imágenes cargadas en el repositorio forman parte del archivo visual.</small></div>
+<div class="infographic-gallery">
+<figure><img src="IMG-20260916-WA0004.jpg" alt="Infografía del proyecto sobre el Pacífico colombiano"><figcaption>Infografía · material del grupo</figcaption></figure>
+<figure><img src="IMG-20260916-WA0005.jpg" alt="Infografía del proyecto sobre el Pacífico colombiano"><figcaption>Infografía · material del grupo</figcaption></figure>
+</div>
+</div>
+
+<div class="media-feature reveal presentation">
+<div class="media-heading"><span>📽️ · PRESENTACIÓN</span><b>Región Pacífica de Colombia</b><small>Visualizador de diapositivas integrado. Usa las flechas, zoom y pantalla completa.</small></div>
+<div class="pdf-toolbar"><span id="pdfPage">1 / —</span><button id="pdfPrev">← Anterior</button><button id="pdfNext">Siguiente →</button><button id="pdfZoomOut">−</button><button id="pdfZoomIn">+</button><button id="pdfFullscreen">⛶ Pantalla completa</button></div>
+<div id="pdfViewer" class="pdf-viewer"><div class="pdf-loading" id="pdfLoading">Cargando presentación…</div><canvas id="pdfCanvas"></canvas></div>
+<div class="presentation-actions"><a class="btn" href="region_pacifica_menor_25MB.pdf" download>📥 Descargar PDF</a><a class="text-btn" href="region_pacifica_menor_25MB.pdf" target="_blank" rel="noopener">Abrir PDF en otra pestaña ↗</a></div>
+</div>
+
+<div class="media-index reveal"><span>ARCHIVO</span><strong>Video · Podcast · Infografías · Presentación</strong><small>Todos los recursos mostrados aquí corresponden a archivos que forman parte del repositorio del proyecto.</small></div>
 </div></section>
 
-<section class="finale"><div class="wrap reveal"><span class="eyebrow">CIERRE · 11°</span><h2>Explorar es<br><em>conectar.</em></h2><p>Geografía, personas, cultura, economía y naturaleza cuentan una misma historia territorial.</p><a class="btn" href="#inicio">Volver arriba ↑</a></div></section>
+<section class="section dark sources-story">
+<div class="wrap">
+<div class="title reveal"><span class="eyebrow">11 · INVESTIGACIÓN</span><h2>La web también es un <em>cuaderno de fuentes.</em></h2><p>Las fuentes institucionales sirven para ampliar datos, verificar información y continuar la investigación del territorio.</p></div>
+<div class="sources reveal">
+<a href="https://www.dane.gov.co/" target="_blank" rel="noopener"><span>📊</span><b>DANE</b><small>Estadística y cuentas regionales.</small>↗</a>
+<a href="https://www.igac.gov.co/" target="_blank" rel="noopener"><span>🗺️</span><b>IGAC</b><small>Cartografía, geografía y territorio.</small>↗</a>
+<a href="https://www.parquesnacionales.gov.co/" target="_blank" rel="noopener"><span>🌳</span><b>Parques Nacionales</b><small>Áreas protegidas y biodiversidad.</small>↗</a>
+<a href="https://www.minambiente.gov.co/" target="_blank" rel="noopener"><span>🌱</span><b>MinAmbiente</b><small>Conservación, ecosistemas y ambiente.</small>↗</a>
+<a href="https://www.mineducacion.gov.co/" target="_blank" rel="noopener"><span>🎓</span><b>MinEducación</b><small>Información oficial educativa.</small>↗</a>
+<a href="https://mincultura.gov.co/" target="_blank" rel="noopener"><span>🎵</span><b>Ministerio de las Culturas</b><small>Patrimonio cultural y memoria.</small>↗</a>
+</div>
+<div class="bibliography reveal"><span class="eyebrow">BIBLIOGRAFÍA</span><h3>Fuentes principales</h3>
+<ul><li>Departamento Administrativo Nacional de Estadística — DANE.</li><li>Instituto Geográfico Agustín Codazzi — IGAC.</li><li>Parques Nacionales Naturales de Colombia.</li><li>Ministerio de Ambiente y Desarrollo Sostenible.</li><li>Ministerio de Educación Nacional.</li><li>Ministerio de las Culturas, las Artes y los Saberes.</li><li>Gobernaciones y alcaldías de los departamentos y municipios estudiados.</li><li>Publicaciones académicas y científicas relacionadas con el Chocó biogeográfico.</li></ul>
+</div>
+</div></section>
+
+<section class="section source-detail dark">
+<div class="wrap">
+<div class="source-detail-grid reveal">
+<div><span class="eyebrow">DATOS PARA INVESTIGAR</span><h2>El territorio también se puede <em>medir.</em></h2></div>
+<div><p>El DANE reportó para 2023 preliminar un PIB regional de 211 billones de pesos a precios corrientes para la agrupación Pacífica. Dentro de esa agrupación, Valle del Cauca representó 72,3 %, Cauca 13,4 %, Nariño 11,1 % y Chocó 3,2 %.</p><a class="inline-source" href="https://www.dane.gov.co/files/operaciones/PIB/bol-PIBDep-2023pr.pdf" target="_blank" rel="noopener">Ver boletín técnico DANE ↗</a></div>
+</div>
+<div class="source-detail-grid reveal"><div><span class="eyebrow">DATOS AMBIENTALES</span><h2>Los manglares son <em>territorio vivo.</em></h2></div><div><p>MinAmbiente registra una extensión aproximada de 194.880 hectáreas de manglar en el litoral Pacífico colombiano dentro de sus estimaciones citadas para el ecosistema, y documenta procesos de conservación, zonificación y restauración.</p><a class="inline-source" href="https://hac2-api.minambiente.gov.co/index.php/bosques-biodiversidad-y-servicios-ecosistemicos/ecosistemas-estrategicos/manglares" target="_blank" rel="noopener">Consultar información sobre manglares ↗</a></div></div>
+</div>
+</section>
+
+<section class="finale"><div class="wrap reveal"><span class="eyebrow">CIERRE · GRADO 11°</span><h2>Conocer el territorio es<br><em>aprender a mirarlo.</em></h2><p>El Pacífico reúne naturaleza, comunidades, cultura, producción y desafíos. Comprender esas conexiones permite construir una mirada más completa del territorio.</p><a class="btn" href="#inicio">Volver al inicio ↑</a></div></section>
 </main>
 
 <div id="modal" class="modal" role="dialog" aria-modal="true"><div class="modalbox"><button id="close" aria-label="Cerrar">×</button><span id="modalTag"></span><h2 id="modalTitle"></h2><p id="modalBody"></p></div></div>
-<footer>Pacífico Exploratorio · Proyecto escolar de grado 11° · Colombia en la Web</footer>
-<script src="data/pacifico.js"></script><script src="script.js"></script>
-</body></html>
+<footer>Pacífico Exploratorio · Colombia en la Web · Proyecto educativo de grado 11° · Región Pacífica de Colombia</footer>
+<script src="data/pacifico.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
