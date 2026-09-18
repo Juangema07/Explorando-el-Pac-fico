@@ -12,38 +12,176 @@ const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.c
 
 const quiz=[
 ["¿Qué departamentos forman la agrupación Pacífica usada por el DANE?","Cauca, Chocó, Nariño y Valle del Cauca",["Cauca, Chocó, Nariño y Valle del Cauca","Chocó, Cauca, Nariño y Córdoba","Valle del Cauca, Cauca, Chocó y Putumayo"]],
-["¿Cuál es un río asociado al territorio pacífico?","Atrato",["Atrato","San Juan","Mira"]],
-["¿Qué ecosistema es una zona de transición entre tierra y mar?","Manglar",["Selva húmeda","Manglar","Bosque de ribera"]],
-["¿Qué instrumento caracteriza las músicas tradicionales del Pacífico Sur?","Marimba de chonta",["Marimba de chonta","Cununo","Guasá"]],
-["¿Cuál es una actividad económica importante?","Pesca",["Pesca","Agricultura","Turismo"]],
+["¿Cuál es un río asociado al territorio pacífico?","Atrato",["Atrato","Magdalena","Meta"]],
+["¿Qué ecosistema es una zona de transición entre tierra y mar?","Manglar",["Selva húmeda","Manglar","Páramo"]],
+["¿Qué instrumento caracteriza las músicas tradicionales del Pacífico Sur?","Marimba de chonta",["Marimba de chonta","Arpa llanera","Acordeón"]],
+["¿Cuál es una actividad económica relacionada con ríos, esteros y mar?","Pesca",["Pesca","Ganadería de alta montaña","Cultivo de papa"]],
 ["¿Qué área protegida se encuentra en una isla del Cauca?","Gorgona",["Gorgona","Utría","Uramba Bahía Málaga"]]
 ];
-let qi=0,score=0;
-function renderQuiz(){let q=quiz[qi];$("#qCount").textContent=`Pregunta ${qi+1}/${quiz.length}`;$("#qScore").textContent=`Puntos: ${score}`;$("#qBar").style.width=qi/quiz.length*100+"%";$("#qText").textContent=q[0];$("#qFeedback").textContent="";$("#nextQ").classList.add("hidden");$("#qOptions").innerHTML=q[2].map(x=>"<button>"+x+"</button>").join("");$$("#qOptions button").forEach(b=>b.onclick=()=>{if(b.disabled)return;$$("#qOptions button").forEach(x=>x.disabled=true);if(b.textContent===q[1]){score++;b.classList.add("correct");$("#qFeedback").textContent="Correcto."}else{b.classList.add("wrong");$("#qFeedback").textContent="Respuesta correcta: "+q[1]}$("#qScore").textContent="Puntos: "+score;$("#nextQ").classList.remove("hidden")})}
-$("#nextQ").onclick=()=>{qi++;if(qi>=quiz.length){qi=0;score=0}renderQuiz()};renderQuiz();
 
-const pairs=["🌊","🌿","🐋","🪘","🚢","🐢"];let first=null,lock=false,moves=0;
-function memory(){let board=$("#memoryBoard");board.innerHTML="";first=null;lock=false;moves=0;$("#moves").textContent="0 movimientos";[...pairs,...pairs].sort(()=>Math.random()-.5).forEach(v=>{let b=document.createElement("button");b.innerHTML="<span>?</span><b>"+v+"</b>";b.onclick=()=>{if(lock||b.classList.contains("flip"))return;b.classList.add("flip");if(!first){first=b;return}moves++;$("#moves").textContent=moves+" movimientos";if(b.textContent===first.textContent)first=null;else{lock=true;setTimeout(()=>{b.classList.remove("flip");first.classList.remove("flip");first=null;lock=false},650)}};board.appendChild(b)})}
-$("#resetMemory").onclick=memory;memory();
+let qi=0,score=0,quizFinished=false;
+function renderQuiz(){
+  if(quizFinished)return;
+  const q=quiz[qi];
+  $("#qCount").textContent=`Pregunta ${qi+1}/${quiz.length}`;
+  $("#qScore").textContent=`Puntos: ${score}`;
+  $("#qBar").style.width=((qi)/quiz.length*100)+"%";
+  $("#qText").textContent=q[0];
+  $("#qFeedback").textContent="";
+  $("#nextQ").classList.add("hidden");
+  $("#quizFinish").classList.add("hidden");
+  $("#qOptions").innerHTML=q[2].map(x=>"<button type='button'>"+x+"</button>").join("");
+  $$("#qOptions button").forEach(b=>b.onclick=()=>{
+    if(b.disabled)return;
+    $$("#qOptions button").forEach(x=>x.disabled=true);
+    if(b.textContent===q[1]){
+      score++;
+      b.classList.add("correct");
+      $("#qFeedback").textContent="✓ Correcto.";
+    }else{
+      b.classList.add("wrong");
+      $("#qFeedback").textContent="Respuesta correcta: "+q[1];
+    }
+    $("#qScore").textContent=`Puntos: ${score}`;
+    if(qi===quiz.length-1){
+      $("#qBar").style.width="100%";
+      $("#nextQ").classList.add("hidden");
+      $("#quizFinalScore").textContent=`Resultado: ${score} / ${quiz.length}`;
+      $("#quizFinalText").textContent=score===quiz.length?"¡Perfecto! Dominaste los contenidos principales del Pacífico.":score>=4?"¡Buen trabajo! Repasa los temas que quieras reforzar.":"Puedes volver a recorrer la web y luego intentarlo otra vez.";
+      $("#quizFinish").classList.remove("hidden");
+      quizFinished=true;
+    }else{
+      $("#nextQ").classList.remove("hidden");
+    }
+  });
+}
+$("#nextQ").onclick=()=>{qi++;renderQuiz()};
+$("#resetQuiz").onclick=()=>{qi=0;score=0;quizFinished=false;renderQuiz()};
+renderQuiz();
 
-const correct=["Nacimiento en zona alta","Cauce y afluentes","Comunidades ribereñas","Desembocadura en el mar"];let route=[...correct].sort(()=>Math.random()-.5);
-function drawRoute(){let box=$("#routeChoices");box.innerHTML="";route.forEach((v,i)=>{let b=document.createElement("button");b.textContent=(i+1)+". "+v;b.onclick=()=>{if(i<route.length-1){[route[i],route[i+1]]=[route[i+1],route[i]];drawRoute()}};box.appendChild(b)})}
-drawRoute();$("#checkRoute").onclick=()=>$("#routeResult").textContent=route.join("|")===correct.join("|")?"¡Ruta correcta!":"Aún hay elementos por ordenar.";
+const routeCorrect=["Nacimiento en zona alta","Cauce y afluentes","Comunidades ribereñas","Desembocadura en el mar"];
+let routeStep=0,routeAttempts=0;
+function renderRoute(){
+  const box=$("#routeChoices");
+  box.innerHTML="";
+  $("#routeProgress").textContent=`Paso ${Math.min(routeStep+1,routeCorrect.length)} de ${routeCorrect.length}`;
+  $("#routeAttempts").textContent=`Intentos: ${routeAttempts}`;
+  routeCorrect.forEach((v,i)=>{
+    if(i<routeStep)return;
+    const b=document.createElement("button");
+    b.type="button";
+    b.textContent=v;
+    b.onclick=()=>{
+      routeAttempts++;
+      if(i===routeStep){
+        routeStep++;
+        b.classList.add("correct");
+        $("#routeResult").textContent=routeStep===routeCorrect.length?"✓ ¡Orden correcto! Completaste la ruta.":"✓ Correcto. Ahora busca el siguiente paso.";
+        if(routeStep===routeCorrect.length){
+          $("#routeProgress").textContent="Ruta completa · 4 de 4";
+          $("#routeFinish").classList.remove("hidden");
+          $$("#routeChoices button").forEach(x=>x.disabled=true);
+        }else renderRoute();
+      }else{
+        b.classList.add("wrong");
+        $("#routeResult").textContent="Ese no es el siguiente paso. Piensa en el recorrido del agua.";
+        setTimeout(()=>b.classList.remove("wrong"),450);
+        $("#routeAttempts").textContent=`Intentos: ${routeAttempts}`;
+      }
+    };
+    box.appendChild(b);
+  });
+}
+$("#resetRoute").onclick=()=>{routeStep=0;routeAttempts=0;$("#routeResult").textContent="";$("#routeFinish").classList.add("hidden");renderRoute()};
+renderRoute();
 
-const classifyItems=[["Agricultura","primario"],["Pesca","primario"],["Minería","primario"],["Transformación de productos","secundario"],["Transporte y puertos","terciario"],["Turismo","terciario"]];let selectedSector=null,classifyDone=0;
-function renderClassify(){let box=$("#classifyCards");box.innerHTML="";classifyItems.forEach((it,i)=>{let card=document.createElement("div");card.className="classify-card";card.innerHTML="<b>"+it[0]+"</b><small>Elige un sector para clasificarla.</small><div class='selected-sector'></div><button>Clasificar</button>";card.querySelector("button").onclick=()=>{if(!selectedSector){$("#classifyFeedback").textContent="Selecciona primero un sector.";return}if(card.classList.contains("done"))return;if(selectedSector===it[1]){card.classList.add("done");card.querySelector(".selected-sector").textContent="✓ "+selectedSector.toUpperCase();classifyDone++;$("#classifyScore").textContent=classifyDone+" / "+classifyItems.length;$("#classifyFeedback").textContent=classifyDone===classifyItems.length?"¡Clasificación completa!":"Correcto. Sigue con la siguiente."}else $("#classifyFeedback").textContent="No coincide. Revisa la definición del sector y prueba otra vez.";};box.appendChild(card)})}
-$$(".sector-buttons button").forEach(b=>b.onclick=()=>{$$(".sector-buttons button").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");selectedSector=b.dataset.sector;$("#classifyFeedback").textContent="Sector seleccionado: "+b.textContent});
-$("#resetClassify").onclick=()=>{classifyDone=0;selectedSector=null;$$(".sector-buttons button").forEach(x=>x.classList.remove("selected"));$("#classifyScore").textContent="0 / 6";$("#classifyFeedback").textContent="";renderClassify()};renderClassify();
+const classifyItems=[["Agricultura","primario"],["Pesca","primario"],["Minería","primario"],["Transformación de productos","secundario"],["Transporte y puertos","terciario"],["Turismo","terciario"]];
+let selectedSector=null,classifyDone=0;
+function renderClassify(){
+  const box=$("#classifyCards");
+  box.innerHTML="";
+  classifyItems.forEach(it=>{
+    const card=document.createElement("div");
+    card.className="classify-card";
+    card.innerHTML="<b>"+it[0]+"</b><small>Sector: elige arriba y confirma.</small><div class='selected-sector'></div><button type='button'>Clasificar</button>";
+    card.querySelector("button").onclick=()=>{
+      if(card.classList.contains("done"))return;
+      if(!selectedSector){
+        $("#classifyFeedback").textContent="Primero selecciona Primario, Secundario o Terciario.";
+        return;
+      }
+      if(selectedSector===it[1]){
+        card.classList.add("done");
+        card.querySelector(".selected-sector").textContent="✓ "+selectedSector.toUpperCase();
+        card.querySelector("button").disabled=true;
+        classifyDone++;
+        $("#classifyScore").textContent=classifyDone+" / "+classifyItems.length;
+        $("#classifyFeedback").textContent=classifyDone===classifyItems.length?"✓ ¡Todas las actividades están clasificadas!":"✓ Correcto. Continúa con otra actividad.";
+        if(classifyDone===classifyItems.length){
+          $(".classifyFinish").classList.remove("hidden");
+          $("#classifyFinish").classList.remove("hidden");
+          $$(".sector-buttons button").forEach(x=>x.disabled=true);
+        }
+      }else{
+        $("#classifyFeedback").textContent="No coincide. Revisa la definición de ese sector.";
+      }
+    };
+    box.appendChild(card);
+  });
+}
+$$( ".sector-buttons button").forEach(b=>b.onclick=()=>{
+  $$( ".sector-buttons button").forEach(x=>x.classList.remove("selected"));
+  b.classList.add("selected");
+  selectedSector=b.dataset.sector;
+  $("#classifyFeedback").textContent="Sector seleccionado: "+b.textContent;
+});
+$("#resetClassify").onclick=()=>{
+  classifyDone=0;selectedSector=null;
+  $$( ".sector-buttons button").forEach(x=>{x.classList.remove("selected");x.disabled=false});
+  $("#classifyScore").textContent="0 / 6";
+  $("#classifyFeedback").textContent="";
+  $("#classifyFinish").classList.add("hidden");
+  renderClassify();
+};
+renderClassify();
 
 const decisions=[
 ["Una comunidad necesita mejorar su transporte fluvial sin afectar un manglar.",["Priorizar una ruta acordada con la comunidad y medidas de protección del manglar.","Abrir el canal sin estudiar el ecosistema","Eliminar el manglar para ampliar la ruta"]],
 ["Una actividad económica aumenta la presión sobre el bosque.",["Evaluar alternativas sostenibles, control ambiental y participación comunitaria.","Continuar sin controles","Ignorar los impactos"]],
 ["Una zona costera necesita reducir residuos.",["Mejorar gestión de residuos, educación ambiental y participación comunitaria.","Dejar los residuos donde estén","Aumentar los vertimientos"]]
-];let di=0;
-function decision(){let d=decisions[di];$("#decisionBox").innerHTML="<p><b>Situación:</b> "+d[0]+"</p><div>"+d[1].map((x,i)=>"<button data-i='"+i+"'>"+x+"</button>").join("")+"</div>";$$("button",$("#decisionBox")).forEach(b=>b.onclick=()=>{b.classList.add(+b.dataset.i===0?"good":"bad");setTimeout(()=>{di=(di+1)%decisions.length;decision()},700)})}
-decision();
+];
+let di=0,decisionScore=0,decisionFinished=false;
+function renderDecision(){
+  if(decisionFinished)return;
+  const d=decisions[di];
+  $("#decisionProgress").textContent=`Situación ${di+1} de ${decisions.length}`;
+  $("#decisionScore").textContent=`Puntos: ${decisionScore}`;
+  $("#decisionFinish").classList.add("hidden");
+  $("#decisionBox").innerHTML="<p><b>Situación:</b> "+d[0]+"</p><div>"+d[1].map((x,i)=>"<button type='button' data-i='"+i+"'>"+x+"</button>").join("")+"</div>";
+  $$("#decisionBox button").forEach(b=>b.onclick=()=>{
+    $$("#decisionBox button").forEach(x=>x.disabled=true);
+    const good=Number(b.dataset.i)===0;
+    b.classList.add(good?"good":"bad");
+    if(good)decisionScore++;
+    $("#decisionScore").textContent=`Puntos: ${decisionScore}`;
+    if(di===decisions.length-1){
+      decisionFinished=true;
+      $("#decisionProgress").textContent="Situaciones completadas · 3 de 3";
+      $("#decisionFinalScore").textContent=`Resultado: ${decisionScore} / ${decisions.length}`;
+      $("#decisionFinalText").textContent=decisionScore===3?"Completaste las tres situaciones considerando las conexiones entre ambiente, comunidad y economía.":decisionScore===2?"Completaste el reto. Revisa los desafíos ambientales para reforzar el tema.":"Vuelve a recorrer las secciones de desafíos, cultura y economía antes de intentarlo otra vez.";
+      $("#decisionFinish").classList.remove("hidden");
+    }else{
+      setTimeout(()=>{di++;renderDecision()},650);
+    }
+  });
+}
+$("#resetDecisions").onclick=()=>{di=0;decisionScore=0;decisionFinished=false;renderDecision()};
+renderDecision();
 
-$$(".game-tabs button").forEach(b=>b.onclick=()=>{$$(".game-tabs button").forEach(x=>x.classList.toggle("active",x===b));$$(".game").forEach(x=>x.classList.toggle("active",x.id===b.dataset.game))});
+$$( ".game-tabs button").forEach(b=>b.onclick=()=>{
+  $$( ".game-tabs button").forEach(x=>x.classList.toggle("active",x===b));
+  $$( ".game").forEach(x=>x.classList.toggle("active",x.id===b.dataset.game));
+});
 
 let pdfDoc=null,pdfPageNum=1,pdfScale=1.1;
 const pdfUrl="region_pacifica_menor_25MB.pdf";
