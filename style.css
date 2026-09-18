@@ -134,3 +134,11 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offse
   .media-index{margin:0 14px 18px}
   .field-notes:before{width:260px;height:260px}
 }
+
+.media-tools{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:-5px 27px 25px;padding-top:13px;border-top:1px solid #173b3112}
+.media-tools span{font-size:.65rem;letter-spacing:.13em;font-weight:800;color:#638078}
+.media-tools a{font-weight:800;color:#236a55;font-size:.8rem}
+.infographic-gallery figcaption{display:flex;justify-content:space-between;align-items:center;gap:15px}
+.infographic-gallery figcaption strong{font-size:.78rem;font-weight:600}
+.infographic-gallery figcaption a{color:#236a55;font-weight:800;font-size:.75rem;white-space:nowrap}
+@media(max-width:600px){.media-tools{margin:-2px 14px 18px;align-items:flex-start;flex-direction:column;gap:6px}}
