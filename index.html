@@ -226,15 +226,48 @@
 
 <section id="juegos" class="section dark games-section">
 <div class="wrap">
-<div class="title reveal"><span class="eyebrow">08 · APRENDE JUGANDO</span><h2>Clasifica, recuerda, ordena y <em>decide.</em></h2><p>Actividades creadas para esta página y basadas en los contenidos del Pacífico.</p></div>
-<div class="game-tabs reveal"><button class="active" data-game="quiz">🧠 Quiz</button><button data-game="memory">🃏 Memoria</button><button data-game="route">🌊 Ruta del río</button><button data-game="classify">🧩 Clasifica actividades</button><button data-game="decisions">🌱 Decisiones</button></div>
-<div id="quiz" class="game active reveal"><div class="game-intro"><span>RETO 01</span><b>Comprueba tus conocimientos.</b></div><div class="gamehead"><span id="qCount"></span><span id="qScore"></span></div><div class="bar"><i id="qBar"></i></div><h3 id="qText"></h3><div id="qOptions"></div><p id="qFeedback"></p><button class="btn hidden" id="nextQ">Siguiente →</button></div>
-<div id="memory" class="game reveal"><div class="game-intro"><span>RETO 02</span><b>Encuentra las parejas del territorio.</b></div><div class="gamehead"><span>Asocia símbolos del Pacífico</span><span id="moves">0 movimientos</span></div><div id="memoryBoard" class="memory"></div><button class="btn ghost" id="resetMemory">Reiniciar</button></div>
-<div id="route" class="game reveal"><div class="game-intro"><span>RETO 03</span><b>Reconstruye una ruta fluvial.</b></div><h3>Ruta del río</h3><p>Ordena desde el nacimiento hasta el océano.</p><div id="routeChoices" class="route"></div><button class="btn" id="checkRoute">Comprobar ruta</button><p id="routeResult"></p></div>
-<div id="classify" class="game reveal"><div class="game-intro"><span>RETO 04</span><b>Clasifica las actividades económicas.</b></div><p>Selecciona un sector y clasifica cada actividad.</p><div class="classification-score"><span id="classifyScore">0 / 6</span><small>clasificaciones correctas</small></div><div class="sector-buttons"><button data-sector="primario">🌿 Primario</button><button data-sector="secundario">🏭 Secundario</button><button data-sector="terciario">🚢 Terciario</button></div><div id="classifyCards" class="classify-cards"></div><p id="classifyFeedback"></p><button class="btn ghost" id="resetClassify">Reiniciar</button></div>
-<div id="decisions" class="game reveal"><div class="game-intro"><span>RETO 05</span><b>Piensa en ambiente, comunidad y economía.</b></div><h3>Decisiones sobre el territorio</h3><p>Escoge una respuesta considerando más de una dimensión del territorio.</p><div id="decisionBox"></div></div>
-</div></section>
+<div class="title reveal"><span class="eyebrow">08 · APRENDE JUGANDO</span><h2>Comprueba lo que aprendiste del <em>Pacífico.</em></h2><p>Cuatro actividades breves, directamente relacionadas con la ubicación, geografía, biodiversidad, cultura, economía y desafíos de la región. Todas muestran claramente cuándo terminan.</p></div>
 
+<div class="game-tabs reveal">
+<button class="active" data-game="quiz">🧠 Quiz</button>
+<button data-game="route">🌊 Ruta del río</button>
+<button data-game="classify">🧩 Sectores económicos</button>
+<button data-game="decisions">🌱 Decisiones ambientales</button>
+</div>
+
+<div id="quiz" class="game active reveal">
+<div class="game-intro"><span>RETO 01 · 6 PREGUNTAS</span><b>¿Cuánto aprendiste sobre el Pacífico?</b><small>Responde todas las preguntas. Al finalizar verás tu resultado.</small></div>
+<div class="gamehead"><span id="qCount">Pregunta 1/6</span><span id="qScore">Puntos: 0</span></div>
+<div class="bar"><i id="qBar"></i></div>
+<h3 id="qText"></h3><div id="qOptions"></div><p id="qFeedback"></p>
+<button class="btn hidden" id="nextQ">Siguiente →</button>
+<div id="quizFinish" class="game-finish hidden"><strong id="quizFinalScore"></strong><span id="quizFinalText"></span><button class="btn ghost" id="resetQuiz">Jugar de nuevo</button></div>
+</div>
+
+<div id="route" class="game reveal">
+<div class="game-intro"><span>RETO 02 · 4 PASOS</span><b>Sigue el recorrido del agua.</b><small>Haz clic en los pasos en el orden correcto: desde las zonas altas hasta el océano.</small></div>
+<div class="gamehead"><span id="routeProgress">Paso 1 de 4</span><span id="routeAttempts">Intentos: 0</span></div>
+<h3>¿Cuál es la secuencia de un río?</h3>
+<div id="routeChoices" class="route"></div>
+<p id="routeResult"></p>
+<div id="routeFinish" class="game-finish hidden"><strong>¡Ruta completada!</strong><span>Relacionaste nacimiento, cauce, comunidades ribereñas y desembocadura.</span><button class="btn ghost" id="resetRoute">Reiniciar</button></div>
+</div>
+
+<div id="classify" class="game reveal">
+<div class="game-intro"><span>RETO 03 · 6 ACTIVIDADES</span><b>Relaciona la economía con el territorio.</b><small>Elige un sector y luego pulsa “Clasificar” en cada actividad.</small></div>
+<div class="classification-score"><span id="classifyScore">0 / 6</span><small>actividades clasificadas</small></div>
+<div class="sector-buttons"><button data-sector="primario">🌿 Primario</button><button data-sector="secundario">🏭 Secundario</button><button data-sector="terciario">🚢 Terciario</button></div>
+<div id="classifyCards" class="classify-cards"></div><p id="classifyFeedback"></p>
+<div id="classifyFinish" class="game-finish hidden"><strong>¡Clasificación completa!</strong><span>Ya relacionaste las actividades económicas con los sectores trabajados en la web.</span><button class="btn ghost" id="resetClassify">Reiniciar</button></div>
+</div>
+
+<div id="decisions" class="game reveal">
+<div class="game-intro"><span>RETO 04 · 3 SITUACIONES</span><b>Toma decisiones pensando en el territorio.</b><small>Lee cada caso y selecciona la respuesta que considere ambiente, comunidad y economía.</small></div>
+<div class="gamehead"><span id="decisionProgress">Situación 1 de 3</span><span id="decisionScore">Puntos: 0</span></div>
+<div id="decisionBox"></div>
+<div id="decisionFinish" class="game-finish hidden"><strong id="decisionFinalScore"></strong><span id="decisionFinalText"></span><button class="btn ghost" id="resetDecisions">Volver a jugar</button></div>
+</div>
+</div></section>
 
 <section class="section field-notes">
 <div class="wrap">
