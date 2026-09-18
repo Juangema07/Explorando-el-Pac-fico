@@ -55,3 +55,16 @@ $("#pdfZoomIn").onclick=()=>{pdfScale=Math.min(2.4,pdfScale+.15);renderPdfPage()
 $("#pdfZoomOut").onclick=()=>{pdfScale=Math.max(.55,pdfScale-.15);renderPdfPage()};
 $("#pdfFullscreen").onclick=()=>{const box=$("#pdfViewer");if(box.requestFullscreen)box.requestFullscreen();else if(box.webkitRequestFullscreen)box.webkitRequestFullscreen()};
 loadPdf();
+
+
+// Portada propia del video: evita mostrar cualquier fotograma/imagen externa antes de reproducir.
+const videoCover = document.getElementById("videoCover");
+const videoStart = document.getElementById("videoStart");
+const groupVideo = document.getElementById("groupVideo");
+if (videoCover && videoStart && groupVideo) {
+  videoStart.addEventListener("click", () => {
+    videoCover.classList.add("is-hidden");
+    groupVideo.play().catch(() => {});
+  });
+  groupVideo.addEventListener("play", () => videoCover.classList.add("is-hidden"));
+}
