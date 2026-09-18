@@ -206,8 +206,17 @@
 
 <div class="media-feature reveal presentation">
 <div class="media-heading"><span>04 · PRESENTACIÓN</span><b>Región Pacífica de Colombia</b><small>Explora las diapositivas dentro de la página con navegación, zoom y pantalla completa.</small></div>
-<div class="pdf-toolbar"><span id="pdfPage">1 / —</span><button id="pdfPrev">← Anterior</button><button id="pdfNext">Siguiente →</button><button id="pdfZoomOut">−</button><button id="pdfZoomIn">+</button><button id="pdfFullscreen">⛶ Pantalla completa</button></div>
-<div id="pdfViewer" class="pdf-viewer"><div class="pdf-loading" id="pdfLoading">Cargando presentación…</div><canvas id="pdfCanvas"></canvas><div class="pdf-fs-toolbar" aria-label="Controles de presentación en pantalla completa"><span id="pdfFsPage">1 / —</span><button id="pdfFsPrev" aria-label="Diapositiva anterior">← Anterior</button><button id="pdfFsNext" aria-label="Siguiente diapositiva">Siguiente →</button><button id="pdfFsZoomOut" aria-label="Alejar diapositiva">−</button><button id="pdfFsZoomIn" aria-label="Acercar diapositiva">+</button><button id="pdfFsFullscreen" aria-label="Salir de pantalla completa">⛶ Salir</button></div></div>
+<div id="pdfStage" class="pdf-stage">
+<div class="pdf-toolbar" aria-label="Controles de presentación">
+<span id="pdfPage">1 / —</span>
+<button id="pdfPrev" type="button">← Anterior</button>
+<button id="pdfNext" type="button">Siguiente →</button>
+<button id="pdfZoomOut" type="button">−</button>
+<button id="pdfZoomIn" type="button">+</button>
+<button id="pdfFullscreen" type="button">⛶ Pantalla completa</button>
+</div>
+<div id="pdfViewer" class="pdf-viewer"><div class="pdf-loading" id="pdfLoading">Cargando presentación…</div><canvas id="pdfCanvas"></canvas></div>
+</div>
 <div class="presentation-actions"><a class="btn" href="region_pacifica_menor_25MB.pdf" download>📥 Descargar PDF</a><a class="text-btn" href="region_pacifica_menor_25MB.pdf" target="_blank" rel="noopener">Abrir PDF en otra pestaña ↗</a></div>
 </div>
 
