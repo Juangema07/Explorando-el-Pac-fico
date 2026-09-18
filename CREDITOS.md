@@ -16,3 +16,8 @@ La primera versión utiliza fotografías remotas de referencia para ambientació
 
 ## Materiales del grupo
 Cuando se agreguen video, audio, infografías y presentación, registrar aquí sus nombres y autoría.
+
+## Mapa territorial
+- “Mapa de Colombia (región del Pacífico).svg”, autor Milenioscuro, Wikimedia Commons.
+- Licencia: CC BY-SA 4.0.
+- Fuente: https://commons.wikimedia.org/wiki/File:Mapa_de_Colombia_(regi%C3%B3n_del_Pac%C3%ADfico).svg
