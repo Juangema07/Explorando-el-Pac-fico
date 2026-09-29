@@ -248,7 +248,11 @@ const pacificoGeneralBackgrounds=[
   "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=2200&q=85",
   "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=85",
   "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2200&q=85",
-  "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2200&q=85"
+  "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2200&q=85",
+  "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=85",
+  "https://images.unsplash.com/photo-1473445361085-b9a07f55608b?auto=format&fit=crop&w=2200&q=85",
+  "https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=2200&q=85",
+  "https://images.unsplash.com/photo-1526481280695-3c687fd643ed?auto=format&fit=crop&w=2200&q=85"
 ];
 
 let pacificoGeneralIndex=0;
@@ -280,7 +284,7 @@ function initPacificoGeneralBackground(){
   setPacificoGeneralBackground(pacificoGeneralBackgrounds[1],1);
   pacificoGeneralIndex=2;
   pacificoGeneralLayer=0;
-  setInterval(rotatePacificoGeneralBackground,12000);
+  setInterval(rotatePacificoGeneralBackground,9000);
 }
 
 initPacificoGeneralBackground();
