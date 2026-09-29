@@ -777,3 +777,67 @@ body{background:var(--bg);overflow-x:hidden}
 .territory-grid .map-card .map-image-wrap > .map-ocean {
   z-index: 2;
 }
+
+
+/* ===== FONDOS FOTOGRÁFICOS · VARIEDAD PACÍFICO 2026-09-29 ===== */
+/* Los fondos de las secciones vuelven a ser fotográficos.
+   Cada zona usa una imagen distinta para evitar grandes bloques de color plano. */
+.section.dark:not(.games-section),
+.field-notes{
+  position:relative;
+  background-color:transparent !important;
+  background-size:cover !important;
+  background-position:center !important;
+  background-repeat:no-repeat !important;
+  background-attachment:scroll !important;
+}
+
+#ubicacion{
+  background-image:linear-gradient(180deg,#03130d9c,#061713c4),url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=2200&q=85") !important;
+}
+.water-story{
+  background-image:linear-gradient(180deg,#03130d9e,#061713c7),url("https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?auto=format&fit=crop&w=2200&q=85") !important;
+}
+.life-section{
+  background-image:linear-gradient(180deg,#03130d8e,#061713c7),url("https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=2200&q=85") !important;
+}
+.heritage{
+  background-image:linear-gradient(180deg,#03130d90,#061713c8),url("https://images.unsplash.com/photo-1473445361085-b9a07f55608b?auto=format&fit=crop&w=2200&q=85") !important;
+}
+.economy-map{
+  background-image:linear-gradient(180deg,#03130d92,#061713c8),url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=85") !important;
+}
+.places-section{
+  background-image:linear-gradient(180deg,#03130d8c,#061713c8),url("https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=2200&q=85") !important;
+}
+.games-section{
+  background-image:linear-gradient(180deg,#03130d9c,#061713d0),url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2200&q=85") !important;
+}
+.sources-story{
+  background-image:linear-gradient(180deg,#03130d90,#061713c8),url("https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=2200&q=85") !important;
+}
+.source-detail.dark{
+  background-image:linear-gradient(180deg,#03130d90,#061713c8),url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=2200&q=85") !important;
+}
+.field-notes{
+  background-image:linear-gradient(180deg,#03130d90,#061713c7),url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2200&q=85") !important;
+}
+
+/* ÚNICAMENTE el espacio que contiene el mapa permanece plano. */
+.map-card,
+.map-card-head,
+.map-image-wrap,
+.map-card figcaption{
+  background:#0b2a21 !important;
+  background-image:none !important;
+}
+.map-image-wrap::before{
+  background:#0b2a21 !important;
+}
+
+@media(max-width:600px){
+  .section.dark:not(.games-section),
+  .field-notes{
+    background-attachment:scroll !important;
+  }
+}
