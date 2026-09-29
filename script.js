@@ -238,3 +238,49 @@ addEventListener("keydown",e=>{
   if(e.key==="-"){e.preventDefault();zoomPdf(-.15)}
 });
 loadPdf();
+
+/* ===== FONDO GENERAL · ROTACIÓN DE PAISAJES DEL PACÍFICO ===== */
+const pacificoGeneralBackgrounds=[
+  "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nuqui,%20Choc%C3%B3,%20Colombia.jpg",
+  "https://commons.wikimedia.org/wiki/Special:Redirect/file/Buenaventura,%20Colombia.jpg",
+  "https://commons.wikimedia.org/wiki/Special:Redirect/file/Guapi,%20Cauca,%20un%20destino%20en%20busca%20de%20un%20puerto.jpg",
+  "https://commons.wikimedia.org/wiki/Special:Redirect/file/TumacoBeach.jpg",
+  "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=2200&q=85",
+  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=85",
+  "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2200&q=85",
+  "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2200&q=85"
+];
+
+let pacificoGeneralIndex=0;
+let pacificoGeneralLayer=0;
+
+function setPacificoGeneralBackground(url,layer){
+  document.documentElement.style.setProperty(
+    layer===0 ? "--site-background-a" : "--site-background-b",
+    'url("' + url + '")'
+  );
+}
+
+function rotatePacificoGeneralBackground(){
+  const nextUrl=pacificoGeneralBackgrounds[pacificoGeneralIndex];
+  pacificoGeneralIndex=(pacificoGeneralIndex+1)%pacificoGeneralBackgrounds.length;
+  pacificoGeneralLayer=1-pacificoGeneralLayer;
+  setPacificoGeneralBackground(nextUrl,pacificoGeneralLayer);
+  document.body.classList.toggle("bg-layer-b",pacificoGeneralLayer===1);
+}
+
+function initPacificoGeneralBackground(){
+  if(!document.body)return;
+  pacificoGeneralBackgrounds.forEach(src=>{
+    const img=new Image();
+    img.decoding="async";
+    img.src=src;
+  });
+  setPacificoGeneralBackground(pacificoGeneralBackgrounds[0],0);
+  setPacificoGeneralBackground(pacificoGeneralBackgrounds[1],1);
+  pacificoGeneralIndex=2;
+  pacificoGeneralLayer=0;
+  setInterval(rotatePacificoGeneralBackground,12000);
+}
+
+initPacificoGeneralBackground();
