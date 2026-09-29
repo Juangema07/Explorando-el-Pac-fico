@@ -729,5 +729,5 @@ body{background:var(--bg);overflow-x:hidden}
 .field-notes{background-image:linear-gradient(180deg,#03130d70,#061713b0),url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2200&q=85");background-size:cover;background-position:center}
 .sources-story{background-image:linear-gradient(180deg,#03130d70,#061713b0),url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=85");background-size:cover;background-position:center}
 .finale{background-image:linear-gradient(135deg,#03110d72,#03110db0),url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=85");background-size:cover;background-position:center}
-.map-card,.map-image-wrap{background-image:linear-gradient(145deg,#09251d8c,#04120f9c),url("https://images.unsplash.com/photo-1439405326854-014607f694d7?auto=format&fit=crop&w=2200&q=85");background-size:cover;background-position:center}
+.map-card,.map-image-wrap{background-image:none;background-color:#071d18;background-size:auto;background-position:initial}
 .games-section .game{background-image:linear-gradient(145deg,#071b16cc,#03100dcf),url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=2200&q=85");background-size:cover;background-position:center}
