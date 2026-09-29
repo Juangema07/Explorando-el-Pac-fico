@@ -841,3 +841,49 @@ body{background:var(--bg);overflow-x:hidden}
     background-attachment:scroll !important;
   }
 }
+
+
+/* ===== FONDO MÁS PROFUNDO · SOLO CAPA TRASERA 2026-09-29 ===== */
+/* La capa más profunda usa las fotografías rotativas del sitio.
+   No se modifican tarjetas, paneles, botones ni el bloque del mapa. */
+html,body{
+  background:transparent !important;
+}
+body{
+  position:relative;
+  min-height:100%;
+}
+
+/* Las secciones que antes pintaban un color sólido dejan ver el
+   fondo fotográfico global. Las secciones que ya tienen fotografía
+   propia conservan su imagen. */
+.section.dark,
+.water-story,
+.life-section,
+.places-section,
+.games-section,
+.sources-story,
+.field-notes,
+.economy-map,
+.visual-gallery-section{
+  background-color:transparent !important;
+}
+
+/* No convertir en transparentes los contenedores de contenido.
+   El mapa queda exactamente con su bloque plano actual. */
+.map-card,
+.map-card-head,
+.map-image-wrap,
+.map-card figcaption{
+  background:#0b2a21 !important;
+  background-image:none !important;
+}
+
+/* Mantener el fondo global detrás del contenido sin alterar su diseño. */
+body:before,
+body:after{
+  z-index:-10 !important;
+}
+header{
+  z-index:50;
+}
