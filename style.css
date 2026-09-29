@@ -719,15 +719,32 @@ body{background:var(--bg);overflow-x:hidden}
 .challenge{--section-photo:url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2200&q=85")}
 .finale{background-image:linear-gradient(135deg,#03110d78,#03110d88),url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=85")}
 
-/* ===== REEMPLAZO DE FONDOS NEGROS POR FOTOGRAFÍAS ===== */
-.section.dark{background-image:linear-gradient(180deg,#03130d72,#061713b0),url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=85"),url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=2200&q=85"),url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2200&q=85"),url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2200&q=85"),url("https://images.unsplash.com/photo-1439405326854-014607f694d7?auto=format&fit=crop&w=2200&q=85"),url("https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?auto=format&fit=crop&w=2200&q=85"),url("https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=2200&q=85");background-size:cover;background-position:center;background-attachment:fixed}
-.water-story{background-image:linear-gradient(180deg,#03130d72,#061713b0),url("https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?auto=format&fit=crop&w=2200&q=85");background-size:cover;background-position:center}
-.life-section{background-image:linear-gradient(180deg,#03130d70,#061713a8),url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2200&q=85");background-size:cover;background-position:center}
-.games-section{background-image:linear-gradient(180deg,#03130d78,#061713b5),url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=2200&q=85");background-size:cover;background-position:center}
-.media{background-image:linear-gradient(180deg,#dfece7d9,#cbded7e6),url("https://images.unsplash.com/photo-1439405326854-014607f694d7?auto=format&fit=crop&w=2200&q=85");background-size:cover;background-position:center}
-.presentation{background-image:linear-gradient(180deg,#061713aa,#071b16c9),url("https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=2200&q=85");background-size:cover;background-position:center}
-.field-notes{background-image:linear-gradient(180deg,#03130d70,#061713b0),url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2200&q=85");background-size:cover;background-position:center}
-.sources-story{background-image:linear-gradient(180deg,#03130d70,#061713b0),url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=85");background-size:cover;background-position:center}
-.finale{background-image:linear-gradient(135deg,#03110d72,#03110db0),url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=85");background-size:cover;background-position:center}
-.map-card,.map-image-wrap{background-image:none;background-color:#071d18;background-size:auto;background-position:initial}
+/* ===== MAPA TERRITORIAL · FONDO COMPLETAMENTE PLANO ===== */
+.map-card{
+  background:#0b2a21 !important;
+  background-image:none !important;
+}
+.map-card-head{
+  background:#0b2a21 !important;
+  background-image:none !important;
+}
+.map-image-wrap{
+  background:#0b2a21 !important;
+  background-image:none !important;
+}
+.map-image-wrap:after{
+  border-color:#8fe1c118;
+}
+.map-image-wrap img{
+  mix-blend-mode:normal;
+  filter:none;
+  opacity:1;
+}
+.map-ocean{
+  background:#0b2a21 !important;
+}
+.map-card figcaption{
+  background:#0b2a21 !important;
+  background-image:none !important;
+}
 .games-section .game{background-image:linear-gradient(145deg,#071b16cc,#03100dcf),url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=2200&q=85");background-size:cover;background-position:center}
