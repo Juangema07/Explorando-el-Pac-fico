@@ -748,3 +748,32 @@ body{background:var(--bg);overflow-x:hidden}
   background-image:none !important;
 }
 .games-section .game{background-image:linear-gradient(145deg,#071b16cc,#03100dcf),url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=2200&q=85");background-size:cover;background-position:center}
+
+
+/* ===== MAPA TERRITORIAL · BLOQUE PLANO FORZADO 2026-09-29 ===== */
+/* El área que contiene el mapa debe ser totalmente opaca y plana.
+   Se evita cualquier transparencia, gradiente o fondo heredado de la sección. */
+.territory-grid .map-card .map-image-wrap,
+.map-card .map-image-wrap {
+  background-color: #0b2a21 !important;
+  background-image: none !important;
+  background: #0b2a21 !important;
+  isolation: isolate;
+}
+
+.territory-grid .map-card .map-image-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: #0b2a21;
+  pointer-events: none;
+}
+
+.territory-grid .map-card .map-image-wrap > img {
+  z-index: 1;
+}
+
+.territory-grid .map-card .map-image-wrap > .map-ocean {
+  z-index: 2;
+}
